@@ -1,5 +1,11 @@
 package core.selenium;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
+
+import java.io.FileReader;
+import java.io.IOException;
+
 /**
  * Class to manage the config of web driver.
  */
@@ -32,6 +38,18 @@ public class WebDriverConfig {
      */
     public void initialize() {
         browser = System.getProperty(BROWSER);  //Get the browser system property
+        String url_json = "./waitTime.json";
+        JsonParser parser = new JsonParser();
+        FileReader reader;
+        JsonElement json;
+        try {
+            reader = new FileReader(url_json);
+            json = parser.parse(reader);
+        } catch (IOException e)
+        {
+            System.out.println(e.getMessage());
+        }
+
         implicitWaitTime = 30;
         explicitWaitTime = 40;
         waitSleepTime = 500;
