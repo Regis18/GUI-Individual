@@ -3,8 +3,11 @@ package core.selenium;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
 
 /**
  * Class to manage the config of web driver.
@@ -17,6 +20,8 @@ public class WebDriverConfig {
     private int implicitWaitTime;
     private int explicitWaitTime;
     private int waitSleepTime;
+    private Properties prop = new Properties();
+    private InputStream input = null;
 
     private static WebDriverConfig instance;
 
@@ -37,7 +42,13 @@ public class WebDriverConfig {
      * Initializes WebDriverConfig.
      */
     public void initialize() {
-        browser = System.getProperty(BROWSER);  //Get the browser system property
+        try {
+            input = new FileInputStream("gradle.properties");
+            prop.load(input);
+        } catch (IOException event) {
+            event.printStackTrace();
+        }
+        browser = prop.getProperty(BROWSER);
         String url_json = "./waitTime.json";
         JsonParser parser = new JsonParser();
         FileReader reader;
@@ -45,14 +56,15 @@ public class WebDriverConfig {
         try {
             reader = new FileReader(url_json);
             json = parser.parse(reader);
+            implicitWaitTime = Integer.parseInt(json.getAsJsonObject().get("implicitWaitTime").getAsString());
+            explicitWaitTime = Integer.parseInt(json.getAsJsonObject().get("explicitWaitTime").getAsString());
+            waitSleepTime = Integer.parseInt(json.getAsJsonObject().get("waitSleepTime").getAsString());
         } catch (IOException e)
         {
             System.out.println(e.getMessage());
         }
 
-        implicitWaitTime = 30;
-        explicitWaitTime = 40;
-        waitSleepTime = 500;
+
     }
 
     /**

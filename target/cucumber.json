@@ -3,7 +3,7 @@
     "line": 1,
     "elements": [
       {
-        "line": 3,
+        "line": 4,
         "name": "Create a new account in Pivotal Tracker",
         "description": "",
         "id": "create,-update-and-delete-of-account;create-a-new-account-in-pivotal-tracker",
@@ -12,38 +12,45 @@
         "steps": [
           {
             "result": {
-              "duration": 290053500,
-              "error_message": "java.lang.IllegalStateException: The path to the driver executable must be set by the webdriver.gecko.driver system property; for more information, see https://github.com/mozilla/geckodriver. The latest version can be downloaded from https://github.com/mozilla/geckodriver/releases\r\n\tat com.google.common.base.Preconditions.checkState(Preconditions.java:847)\r\n\tat org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:134)\r\n\tat org.openqa.selenium.firefox.GeckoDriverService.access$100(GeckoDriverService.java:44)\r\n\tat org.openqa.selenium.firefox.GeckoDriverService$Builder.findDefaultExecutable(GeckoDriverService.java:167)\r\n\tat org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:355)\r\n\tat org.openqa.selenium.firefox.FirefoxDriver.toExecutor(FirefoxDriver.java:190)\r\n\tat org.openqa.selenium.firefox.FirefoxDriver.\u003cinit\u003e(FirefoxDriver.java:147)\r\n\tat org.openqa.selenium.firefox.FirefoxDriver.\u003cinit\u003e(FirefoxDriver.java:125)\r\n\tat core.selenium.WebDriverManager.initialize(WebDriverManager.java:48)\r\n\tat core.selenium.WebDriverManager.\u003cinit\u003e(WebDriverManager.java:27)\r\n\tat core.selenium.WebDriverManager.getInstance(WebDriverManager.java:37)\r\n\tat steps.projectSteps.verifyLoginToApplication(projectSteps.java:18)\r\n\tat ✽.Given I am logged in to the Application(account.feature:4)\r\n",
-              "status": "failed"
+              "duration": 68794727600,
+              "status": "passed"
             },
-            "line": 4,
-            "name": "I am logged in to the Application",
+            "line": 5,
+            "name": "I log with Username and Password into the Pivotal Tracker",
             "match": {
-              "location": "projectSteps.verifyLoginToApplication()"
+              "location": "LoginSteps.logIn()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "status": "skipped"
+              "duration": 303800,
+              "status": "passed"
             },
-            "line": 5,
+            "line": 6,
             "name": "I create a new account in Pivotal Tracker",
             "match": {
-              "location": "projectSteps.iCreateANewAccountInPivotalTracker()"
+              "location": "projectSteps.createANewAccountInPivotalTracker()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "status": "skipped"
+              "duration": 157152800,
+              "status": "passed"
             },
-            "line": 6,
+            "line": 7,
             "name": "I should see in the accounts page the account created",
             "match": {
-              "location": "projectSteps.iShouldSeeInTheAccountsPageTheAccountCreated()"
+              "location": "projectSteps.seeInTheAccountsPageTheAccountCreated()"
             },
             "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 3,
+            "name": "@delete_account"
           }
         ]
       }
@@ -52,6 +59,6 @@
     "description": "",
     "id": "create,-update-and-delete-of-account",
     "keyword": "Feature",
-    "uri": "account.feature"
+    "uri": "src/test/resources/features/account.feature"
   }
 ]

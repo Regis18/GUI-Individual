@@ -1,10 +1,10 @@
 package core.selenium;
 
 import core.selenium.webdriver.Chrome;
+import core.selenium.webdriver.FactoryBrowser;
 import core.selenium.webdriver.Firefox;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
@@ -43,15 +43,9 @@ public class WebDriverManager {
      * Initializes the settings for the driver.
      */
     private void initialize() {
-//        this.webDriver = new Chrome().initDriver();
-//        this.webDriver = new Firefox().initDriver();
-        this.webDriver = new FirefoxDriver();
-        this.webDriver.manage().window().maximize();
-        this.webDriver.manage()
-                .timeouts()
-                .implicitlyWait(webDriverConfig.getImplicitWaitTime(), TimeUnit.SECONDS);
-        webDriverWait = new WebDriverWait(webDriver, webDriverConfig.getExplicitWaitTime(),
-                webDriverConfig.getWaitSleepTime());
+        FactoryBrowser factory = new FactoryBrowser();
+        this.webDriver = factory.getWebDriver();
+        this.webDriverWait = factory.getWebDriverWait();
     }
 
     /**
