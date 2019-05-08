@@ -13,6 +13,7 @@ import java.util.concurrent.TimeUnit;
 public class WebDriverManager {
     private WebDriver webDriver;
     private WebDriverWait webDriverWait;
+    private WebDriverConfig webDriverConfig = WebDriverConfig.getInstance();
 
     private static WebDriverManager instance = null;
 
@@ -39,9 +40,14 @@ public class WebDriverManager {
      * Initializes the settings for the driver.
      */
     private void initialize() {
-        FactoryBrowser factory = new FactoryBrowser();
-        this.webDriver = factory.getWebDriver();
-        this.webDriverWait = factory.getWebDriverWait();
+        webDriverConfig.initialize();
+        this.webDriver = FactoryBrowser.getWebDriver();
+        this.webDriver.manage().window().maximize();
+        this.webDriver.manage()
+                .timeouts()
+                .implicitlyWait(webDriverConfig.getImplicitWaitTime(), TimeUnit.SECONDS);
+        this.webDriverWait = new WebDriverWait(webDriver, webDriverConfig.getExplicitWaitTime(),
+                webDriverConfig.getWaitSleepTime());
     }
 
     /**

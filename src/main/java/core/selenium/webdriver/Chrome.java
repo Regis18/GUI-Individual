@@ -12,7 +12,7 @@ import java.util.HashMap;
 /**
  * Handles Chrome driver initialization.
  */
-public class Chrome {
+public class Chrome implements IDriver {
     /**
      * Initializes Chrome driver.
      * @return A new ChromeDriver.

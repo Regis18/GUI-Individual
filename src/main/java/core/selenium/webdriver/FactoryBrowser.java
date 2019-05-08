@@ -2,33 +2,21 @@ package core.selenium.webdriver;
 
 import core.selenium.WebDriverConfig;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.concurrent.TimeUnit;
+import java.util.HashMap;
+import java.util.Map;
 
 public class FactoryBrowser {
-    private WebDriver webDriver;
-    private WebDriverConfig webDriverConfig = WebDriverConfig.getInstance();
-    private WebDriverWait webDriverWait;
+    private static WebDriver webDriver;
+    private static WebDriverConfig webDriverConfig = WebDriverConfig.getInstance();
+    private static final String FIREFOX = "firefox";
+    private static final String CHROME = "chrome";
 
-    public WebDriver getWebDriver() {
-        webDriverConfig.initialize();
-        String browser = webDriverConfig.getBrowser();
-        if (browser.equals("Chrome")) {
-            this.webDriver = new Chrome().initDriver();
-        } else if (browser.equals("Firefox")) {
-            this.webDriver = new Firefox().initDriver();
-        }
-        this.webDriver.manage().window().maximize();
-        this.webDriver.manage()
-                .timeouts()
-                .implicitlyWait(webDriverConfig.getImplicitWaitTime(), TimeUnit.SECONDS);
-        return webDriver;
+    public static WebDriver getWebDriver() {
+        Map<String, IDriver> strategyBrowser = new HashMap<>();
+        strategyBrowser.put(FIREFOX, new Firefox());
+        strategyBrowser.put(CHROME, new Chrome());
+        return strategyBrowser.get(webDriverConfig.getBrowser().toLowerCase()).initDriver();
     }
 
-    public WebDriverWait getWebDriverWait() {
-        webDriverWait = new WebDriverWait(webDriver, webDriverConfig.getExplicitWaitTime(),
-                webDriverConfig.getWaitSleepTime());
-        return webDriverWait;
-    }
 }

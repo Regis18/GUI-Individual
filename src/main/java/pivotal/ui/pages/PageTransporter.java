@@ -1,4 +1,4 @@
-package pivotal.ui;
+package pivotal.ui.pages;
 
 import core.selenium.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -81,5 +81,10 @@ public class PageTransporter {
     public AccountsPage navigateToAccountsPage() {
         goToURL(baseURL.concat("accounts"));
         return new AccountsPage();
+    }
+
+    public AccountSettingsPage navigateToAccountSettingsPage(String url) {
+        goToURL(url);
+        return new AccountSettingsPage();
     }
 }

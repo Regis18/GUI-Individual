@@ -2,6 +2,8 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
+      <module name="GUI_TESTING.main" target="1.8" />
+      <module name="GUI_TESTING.test" target="1.8" />
       <module name="GUI_Testing_Account.GUI_TESTING.main" target="1.8" />
       <module name="GUI_Testing_Account.GUI_TESTING.test" target="1.8" />
       <module name="Pivotal.GUI_TESTING.main" target="1.8" />

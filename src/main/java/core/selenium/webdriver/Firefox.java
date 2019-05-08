@@ -4,7 +4,7 @@ import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class Firefox {
+public class Firefox implements IDriver {
 
     public WebDriver initDriver() {
         FirefoxDriverManager.getInstance().setup();

@@ -32,14 +32,19 @@ formatter.step({
 });
 formatter.step({
   "line": 7,
-  "name": "I should see in the accounts page the account created",
+  "name": "I should see the new account page",
   "keyword": "Then "
+});
+formatter.step({
+  "line": 8,
+  "name": "I should see the new account in the Accounts page",
+  "keyword": "And "
 });
 formatter.match({
   "location": "LoginSteps.logIn()"
 });
 formatter.result({
-  "duration": 21417468765,
+  "duration": 35305467300,
   "status": "passed"
 });
 formatter.match({
@@ -49,17 +54,24 @@ formatter.match({
       "offset": 24
     }
   ],
-  "location": "projectSteps.createANewAccountInPivotalTracker(String)"
+  "location": "AccountsSteps.createANewAccountInPivotalTracker(String)"
 });
 formatter.result({
-  "duration": 2362692264,
-  "error_message": "java.lang.NullPointerException\r\n\tat steps.projectSteps.createANewAccountInPivotalTracker(projectSteps.java:23)\r\n\tat ✽.When I create a new account \"New Account\" in Pivotal Tracker(src/test/resources/features/account.feature:6)\r\n",
-  "status": "failed"
+  "duration": 1712436700,
+  "status": "passed"
 });
 formatter.match({
-  "location": "projectSteps.seeInTheAccountsPageTheAccountCreated()"
+  "location": "AccountsSteps.seeInTheAccountsPageTheAccountCreated()"
 });
 formatter.result({
-  "status": "skipped"
+  "duration": 2595140600,
+  "status": "passed"
+});
+formatter.match({
+  "location": "AccountsSteps.iShouldSeeTheNewAccountInTheAccountsPage()"
+});
+formatter.result({
+  "duration": 2169522200,
+  "status": "passed"
 });
 });

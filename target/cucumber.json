@@ -12,7 +12,7 @@
         "steps": [
           {
             "result": {
-              "duration": 21417468765,
+              "duration": 35305467300,
               "status": "passed"
             },
             "line": 5,
@@ -24,9 +24,8 @@
           },
           {
             "result": {
-              "duration": 2362692264,
-              "error_message": "java.lang.NullPointerException\r\n\tat steps.projectSteps.createANewAccountInPivotalTracker(projectSteps.java:23)\r\n\tat ✽.When I create a new account \"New Account\" in Pivotal Tracker(src/test/resources/features/account.feature:6)\r\n",
-              "status": "failed"
+              "duration": 1712436700,
+              "status": "passed"
             },
             "line": 6,
             "name": "I create a new account \"New Account\" in Pivotal Tracker",
@@ -37,20 +36,33 @@
                   "offset": 24
                 }
               ],
-              "location": "projectSteps.createANewAccountInPivotalTracker(String)"
+              "location": "AccountsSteps.createANewAccountInPivotalTracker(String)"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "status": "skipped"
+              "duration": 2595140600,
+              "status": "passed"
             },
             "line": 7,
-            "name": "I should see in the accounts page the account created",
+            "name": "I should see the new account page",
             "match": {
-              "location": "projectSteps.seeInTheAccountsPageTheAccountCreated()"
+              "location": "AccountsSteps.seeInTheAccountsPageTheAccountCreated()"
             },
             "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 2169522200,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "I should see the new account in the Accounts page",
+            "match": {
+              "location": "AccountsSteps.iShouldSeeTheNewAccountInTheAccountsPage()"
+            },
+            "keyword": "And "
           }
         ],
         "tags": [
