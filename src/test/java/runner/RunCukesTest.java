@@ -19,12 +19,7 @@ public class RunCukesTest extends AbstractTestNGCucumberTests {
     @AfterTest
     public void afterExecution() {
         AccountSettingsPage accountSettingsPage = new AccountSettingsPage();
-//        PageTransporter pageTransporter = PageTransporter.getInstance();
-//        String urlSettings = accountSettingsPage.getURLAccountSetting
-//        s();
-//        pageTransporter.navigateToAccountSettingsPage(urlSettings);
         accountSettingsPage.deleteAccount();
         WebDriverManager.getInstance().getWebDriver().close();
-
     }
 }

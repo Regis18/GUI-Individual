@@ -11,6 +11,10 @@ public class AccountSettingsPage extends BasePage {
     private WebElement accountForm;
     @FindBy(xpath = "//a[@data-method=\"delete\"]")
     private WebElement deleteLbl;
+    @FindBy(id = "account_name")
+    private WebElement nameAccountTxt;
+    @FindBy(xpath = "//input[@name=\"commit\"]")
+    private WebElement saveBtn;
 
     @Override
     public void waitUntilPageObjectIsLoaded() {
@@ -25,5 +29,11 @@ public class AccountSettingsPage extends BasePage {
     public void deleteAccount() {
         deleteLbl.click();
         driver.switchTo().alert().accept();
+    }
+
+    public void setNameAccount(String nameAccount) {
+        nameAccountTxt.clear();
+        nameAccountTxt.sendKeys(nameAccount);
+        saveBtn.click();
     }
 }

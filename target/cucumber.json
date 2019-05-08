@@ -3,7 +3,7 @@
     "line": 1,
     "elements": [
       {
-        "line": 4,
+        "line": 3,
         "name": "Create a new account in Pivotal Tracker",
         "description": "",
         "id": "create,-update-and-delete-of-account;create-a-new-account-in-pivotal-tracker",
@@ -12,10 +12,10 @@
         "steps": [
           {
             "result": {
-              "duration": 35305467300,
+              "duration": 27278926700,
               "status": "passed"
             },
-            "line": 5,
+            "line": 4,
             "name": "I log with Username and Password into the Pivotal Tracker",
             "match": {
               "location": "LoginSteps.logIn()"
@@ -24,10 +24,10 @@
           },
           {
             "result": {
-              "duration": 1712436700,
+              "duration": 4154549000,
               "status": "passed"
             },
-            "line": 6,
+            "line": 5,
             "name": "I create a new account \"New Account\" in Pivotal Tracker",
             "match": {
               "arguments": [
@@ -42,10 +42,10 @@
           },
           {
             "result": {
-              "duration": 2595140600,
+              "duration": 41232800,
               "status": "passed"
             },
-            "line": 7,
+            "line": 6,
             "name": "I should see the new account page",
             "match": {
               "location": "AccountsSteps.seeInTheAccountsPageTheAccountCreated()"
@@ -54,21 +54,15 @@
           },
           {
             "result": {
-              "duration": 2169522200,
+              "duration": 2097680100,
               "status": "passed"
             },
-            "line": 8,
+            "line": 7,
             "name": "I should see the new account in the Accounts page",
             "match": {
-              "location": "AccountsSteps.iShouldSeeTheNewAccountInTheAccountsPage()"
+              "location": "AccountsSteps.seeTheNewAccountInTheAccountsPage()"
             },
             "keyword": "And "
-          }
-        ],
-        "tags": [
-          {
-            "line": 3,
-            "name": "@delete_account"
           }
         ]
       }

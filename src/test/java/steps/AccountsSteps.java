@@ -1,5 +1,6 @@
 package steps;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.bs.A;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
@@ -30,19 +31,26 @@ public class AccountsSteps {
         accountsPage = pageTransporter.navigateToAccountsPage();
         accountPopup = accountsPage.clickNewAccountCreateBtn();
         accountBar = accountPopup.createNewAccount(nameAccount);
+        account.setUrlSettings(accountSettingsPage.getURLAccountSettings());
     }
 
     @Then("^I should see the new account page$")
     public void seeInTheAccountsPageTheAccountCreated() {
-        account.setUrlSettings(accountSettingsPage.getURLAccountSettings());
         assertEquals(accountBar.getNameAccount(),account.getNameAccount(), "The account was created with another name");
     }
 
     @And("^I should see the new account in the Accounts page$")
-    public void iShouldSeeTheNewAccountInTheAccountsPage() {
+    public void seeTheNewAccountInTheAccountsPage() {
         accountsPage = pageTransporter.navigateToAccountsPage();
         boolean existAccount = accountsPage.verifyAccountInList(account.getNameAccount());
         pageTransporter.navigateToAccountSettingsPage(account.getUrlSettings());
         assertTrue(existAccount,"Don't exist the account in the Account Page");
+    }
+
+    @When("^I configure the account Name \"([^\"]*)\" and save the changes$")
+    public void configureTheAccountNameAndSaveTheChanges(String nameAccount) {
+        account.setNameAccount(nameAccount);
+        pageTransporter.navigateToAccountSettingsPage(account.getUrlSettings());
+        accountSettingsPage.setNameAccount(nameAccount);
     }
 }

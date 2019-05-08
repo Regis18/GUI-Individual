@@ -1,19 +1,18 @@
 Feature: Create, Update and Delete of Account
 
-  @delete_account
   Scenario: Create a new account in Pivotal Tracker
     Given I log with Username and Password into the Pivotal Tracker
     When I create a new account "New Account" in Pivotal Tracker
     Then I should see the new account page
     And I should see the new account in the Accounts page
 
-#  @delete_account
 #  Scenario: Configure the account name of an account created
-#    Given I am logged in to the Pivotal Tracker web page
-#    And I create a new account
-#    When I configure the account Name and save the changes
-#    Then I should see the change in the Account name
-#
+#    Given I log with Username and Password into the Pivotal Tracker
+#    And I create a new account "New Account" in Pivotal Tracker
+#    When I configure the account Name "Change Name" and save the changes
+#    Then I should see the new account page
+#    And I should see the new account in the Accounts page
+##
 #  Scenario: Delete a account in Pivotal Tracker
 #    Given I am logged in to the Pivotal Tracker web page
 #    And I create a new account
