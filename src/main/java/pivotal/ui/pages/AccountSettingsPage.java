@@ -29,6 +29,7 @@ public class AccountSettingsPage extends BasePage {
     public void deleteAccount() {
         deleteLbl.click();
         driver.switchTo().alert().accept();
+
     }
 
     public void setNameAccount(String nameAccount) {
