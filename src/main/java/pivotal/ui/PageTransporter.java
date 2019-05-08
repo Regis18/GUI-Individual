@@ -78,8 +78,8 @@ public class PageTransporter {
         return new LoginPage();
     }
 
-//    public AccountsPage navigateToAccountsPage() {
-//        goToURL(baseURL.concat("accounts"));
-//        return new AccountsPage();
-//    }
+    public AccountsPage navigateToAccountsPage() {
+        goToURL(baseURL.concat("accounts"));
+        return new AccountsPage();
+    }
 }

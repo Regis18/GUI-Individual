@@ -3,7 +3,7 @@ Feature: Create, Update and Delete of Account
   @delete_account
   Scenario: Create a new account in Pivotal Tracker
     Given I log with Username and Password into the Pivotal Tracker
-    When I create a new account in Pivotal Tracker
+    When I create a new account "New Account" in Pivotal Tracker
     Then I should see in the accounts page the account created
 
 #  @delete_account

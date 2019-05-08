@@ -1,9 +1,6 @@
 package core.selenium;
 
-import core.selenium.webdriver.Chrome;
 import core.selenium.webdriver.FactoryBrowser;
-import core.selenium.webdriver.Firefox;
-import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -14,7 +11,6 @@ import java.util.concurrent.TimeUnit;
  * Class to manage web driver.
  */
 public class WebDriverManager {
-    private WebDriverConfig webDriverConfig = WebDriverConfig.getInstance();
     private WebDriver webDriver;
     private WebDriverWait webDriverWait;
 
