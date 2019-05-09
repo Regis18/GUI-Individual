@@ -1,7 +1,8 @@
 package steps;
 
 import cucumber.api.PendingException;
-import cucumber.api.java.bs.A;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -41,9 +42,7 @@ public class AccountsSteps {
 
     @And("^I should see the new account in the Accounts page$")
     public void seeTheNewAccountInTheAccountsPage() {
-        accountsPage = pageTransporter.navigateToAccountsPage();
         boolean existAccount = accountsPage.verifyAccountInList(account.getNameAccount());
-        pageTransporter.navigateToAccountSettingsPage(account.getUrlSettings());
         assertTrue(existAccount,"Don't exist the account in the Account Page");
     }
 
@@ -58,5 +57,31 @@ public class AccountsSteps {
     public void iEnterToTheSettingsAndDeleteTheAccountWithName(String nameAccount) throws Throwable {
         // Write code here that turns the phrase above into concrete actions
         throw new PendingException();
+    }
+
+    @When("^I navigate to Account page$")
+    public void navigateToAccountPage() {
+        accountsPage = pageTransporter.navigateToAccountsPage();
+    }
+
+    @After("@deleteAccount")
+    public void deleteAccount() {
+        System.out.println("Imprimir despues de cada scenario");
+
+    }
+    @Before("@ver")
+    public void ver() {
+        System.out.println("Donde vas");
+    }
+
+    @When("^I navigate to Dashboard page$")
+    public void iNavigateToDashboardPage() {
+
+    }
+
+    @Then("^I should see the new account in the Project Creation popup$")
+    public void iShouldSeeTheNewAccountInTheProjectCreationPopup() {
+        pageTransporter.navigateToAccountSettingsPage(account.getUrlSettings());
+        accountSettingsPage.deleteAccount();
     }
 }

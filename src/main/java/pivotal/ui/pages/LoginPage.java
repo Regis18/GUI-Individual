@@ -1,5 +1,6 @@
 package pivotal.ui.pages;
 
+import org.openqa.selenium.WebDriverInfo;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -22,6 +23,7 @@ public class LoginPage extends BasePage {
 
     @FindBy(id="credentials_password")
     private WebElement passwordTextBox;
+
 
     @Override
     public void waitUntilPageObjectIsLoaded() {
@@ -46,4 +48,5 @@ public class LoginPage extends BasePage {
     public void setUserName(String userName) {
         userNameTextBox.sendKeys(userName);
     }
+
 }

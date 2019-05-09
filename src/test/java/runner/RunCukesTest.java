@@ -2,11 +2,9 @@ package runner;
 
 import core.selenium.WebDriverManager;
 import cucumber.api.CucumberOptions;
-import cucumber.api.Scenario;
-import cucumber.api.java.After;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 import org.testng.annotations.AfterTest;
-import pivotal.ui.pages.AccountSettingsPage;
+
 
 @CucumberOptions(
         plugin = {"pretty", "html:target/cucumber", "json:target/cucumber.json"},
@@ -16,10 +14,8 @@ import pivotal.ui.pages.AccountSettingsPage;
 
 public class RunCukesTest extends AbstractTestNGCucumberTests {
 
-    @After
+    @AfterTest
     public void afterExecution() {
-        AccountSettingsPage accountSettingsPage = new AccountSettingsPage();
-        accountSettingsPage.deleteAccount();
         WebDriverManager.getInstance().getWebDriver().close();
     }
 }

@@ -1,17 +1,25 @@
 Feature: Create, Update and Delete of Account
+#  Background:
+#    Given I am logged in with Username and Password into the Pivotal Tracker
 
+  @deleteAccount @ver
   Scenario: Create a new account in Pivotal Tracker
-    Given I log with Username and Password into the Pivotal Tracker
+    Given I am logged in with Username and Password into the Pivotal Tracker
     When I create a new account "New Account" in Pivotal Tracker
     Then I should see the new account page
-    And I should see the new account in the Accounts page
+    When I navigate to Account page
+    Then I should see the new account in the Accounts page
+    When I navigate to Dashboard page
+    Then I should see the new account in the Project Creation popup
 
+  @deleteAccount
   Scenario: Configure the account name of an account created
-#    Given I log with Username and Password into the Pivotal Tracker
-    And I create a new account "New Account" in Pivotal Tracker
+    Given I am logged in with Username and Password into the Pivotal Tracker
+    Given I create a new account "New Account" in Pivotal Tracker
     When I configure the account Name "Change Name" and save the changes
     Then I should see the new account page
-    And I should see the new account in the Accounts page
+    When I navigate to Account page
+    Then I should see the new account in the Accounts page
 
 #  Scenario: Delete a account in Pivotal Tracker
 #    Given I log with Username and Password into the Pivotal Tracker
@@ -22,16 +30,16 @@ Feature: Create, Update and Delete of Account
 
 
 #  Scenario Outline: Add member to the account of Pivotal Tracker
-#    Given I log with Username and Password into the Pivotal Tracker
+##    Given I log with Username and Password into the Pivotal Tracker
 ##    And I create a new account "New Account" in Pivotal Tracker
 #    When I add a Member <member> to the account and assign a Account Role "<Role>" with permission of project creator
 #    Then I should see the member that was added and message of confirmation
 #
 #    Examples:
 #      |member	|Role|
-#      |LuisG|Member|
-#      |RaulR	|Admin|
-#      |EnriqueQ|Owner|
+#      |g.luisalberto68@gmail.com|Member|
+#      |cxristian.lujan05@gmail.com	|Admin|
+#      |api.testing.automation@gmail.com|Owner|
 #
 #  @delete_account
 #  Scenario: Delete member of an account Pivotal Tracker

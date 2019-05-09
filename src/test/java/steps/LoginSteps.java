@@ -1,13 +1,13 @@
 package steps;
 
+import com.google.gson.JsonObject;
+import core.selenium.WebDriverManager;
+import core.utils.FileReader;
 import cucumber.api.java.en.Given;
+import org.openqa.selenium.WebDriver;
 import pivotal.ui.pages.LoginPage;
 import pivotal.ui.pages.PageTransporter;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Properties;
 
 /**
  * Created by Yesica on 06/05/2019.
@@ -15,23 +15,20 @@ import java.util.Properties;
 public class LoginSteps {
 
     private PageTransporter pageTransporter = PageTransporter.getInstance();
-    private Properties prop = new Properties();
-    private InputStream input = null;
 
     // Pages
     private LoginPage loginPage;
+    protected WebDriver driver;
 
-    @Given("^I log with Username and Password into the Pivotal Tracker$")
+    @Given("^I am logged in with Username and Password into the Pivotal Tracker$")
     public void logIn() {
-        try {
-            input = new FileInputStream("environment.properties");
-            prop.load(input);
-        } catch (IOException event) {
-            event.printStackTrace();
+        JsonObject user = FileReader.readCredentials();
+        driver = WebDriverManager.getInstance().getWebDriver();
+        String title = driver.getTitle();
+        if (title.toLowerCase().equals("pivotal tracker - sign in") || title.equals("")) {
+            loginPage = pageTransporter.navigateToLoginPage();
+            loginPage.login(user.get("user").getAsString(), user.get("password").getAsString());
         }
-        String userName = prop.get("user").toString();
-        String password = prop.get("pass").toString();
-        loginPage = pageTransporter.navigateToLoginPage();
-        loginPage.login(userName, password);
+
     }
 }
