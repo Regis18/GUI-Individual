@@ -12,7 +12,7 @@
         "steps": [
           {
             "result": {
-              "duration": 27278926700,
+              "duration": 20807126118,
               "status": "passed"
             },
             "line": 4,
@@ -24,7 +24,7 @@
           },
           {
             "result": {
-              "duration": 4154549000,
+              "duration": 4871014010,
               "status": "passed"
             },
             "line": 5,
@@ -42,7 +42,7 @@
           },
           {
             "result": {
-              "duration": 41232800,
+              "duration": 34500351,
               "status": "passed"
             },
             "line": 6,
@@ -54,10 +54,72 @@
           },
           {
             "result": {
-              "duration": 2097680100,
+              "duration": 2592726775,
               "status": "passed"
             },
             "line": 7,
+            "name": "I should see the new account in the Accounts page",
+            "match": {
+              "location": "AccountsSteps.seeTheNewAccountInTheAccountsPage()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 9,
+        "name": "Configure the account name of an account created",
+        "description": "",
+        "id": "create,-update-and-delete-of-account;configure-the-account-name-of-an-account-created",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1295092027,
+              "status": "passed"
+            },
+            "comments": [
+              {
+                "line": 10,
+                "value": "#    Given I log with Username and Password into the Pivotal Tracker"
+              },
+              {
+                "line": 11,
+                "value": "#    And I create a new account \"New Account\" in Pivotal Tracker"
+              }
+            ],
+            "line": 12,
+            "name": "I configure the account Name \"Change Name\" and save the changes",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Change Name",
+                  "offset": 30
+                }
+              ],
+              "location": "AccountsSteps.configureTheAccountNameAndSaveTheChanges(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1154616,
+              "error_message": "java.lang.NullPointerException\r\n\tat steps.AccountsSteps.seeInTheAccountsPageTheAccountCreated(AccountsSteps.java:39)\r\n\tat ✽.Then I should see the new account page(src/test/resources/features/account.feature:13)\r\n",
+              "status": "failed"
+            },
+            "line": 13,
+            "name": "I should see the new account page",
+            "match": {
+              "location": "AccountsSteps.seeInTheAccountsPageTheAccountCreated()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 14,
             "name": "I should see the new account in the Accounts page",
             "match": {
               "location": "AccountsSteps.seeTheNewAccountInTheAccountsPage()"

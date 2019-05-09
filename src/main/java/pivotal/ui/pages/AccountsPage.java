@@ -19,7 +19,6 @@ public class AccountsPage extends BasePage {
     @FindBy(xpath = "//div[@class=\"content clearfix\"]")
     private WebElement accountForm;
 
-//    @FindBy(xpath = "//div[@class=\"name\"][normalize-space()=\"Account 7986\"]")
 
     @Override
     public void waitUntilPageObjectIsLoaded() {

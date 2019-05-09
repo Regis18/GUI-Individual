@@ -6,24 +6,24 @@ Feature: Create, Update and Delete of Account
     Then I should see the new account page
     And I should see the new account in the Accounts page
 
-#  Scenario: Configure the account name of an account created
+  Scenario: Configure the account name of an account created
+#    Given I log with Username and Password into the Pivotal Tracker
+    And I create a new account "New Account" in Pivotal Tracker
+    When I configure the account Name "Change Name" and save the changes
+    Then I should see the new account page
+    And I should see the new account in the Accounts page
+
+#  Scenario: Delete a account in Pivotal Tracker
 #    Given I log with Username and Password into the Pivotal Tracker
 #    And I create a new account "New Account" in Pivotal Tracker
-#    When I configure the account Name "Change Name" and save the changes
-#    Then I should see the new account page
-#    And I should see the new account in the Accounts page
-##
-#  Scenario: Delete a account in Pivotal Tracker
-#    Given I am logged in to the Pivotal Tracker web page
-#    And I create a new account
-#    When I enter to the Settings and delete the account
+#    When I enter to the Settings and delete the account with name "New Account"
 #    Then I should see a yellow message "name_of_account was successfully deleted."
 #    And I should see all of the accounts except the deleted account
-#
-#  @delete_account
+
+
 #  Scenario Outline: Add member to the account of Pivotal Tracker
-#    Given I am logged in to the Pivotal Tracker web page
-#    And I create a new account
+#    Given I log with Username and Password into the Pivotal Tracker
+##    And I create a new account "New Account" in Pivotal Tracker
 #    When I add a Member <member> to the account and assign a Account Role "<Role>" with permission of project creator
 #    Then I should see the member that was added and message of confirmation
 #

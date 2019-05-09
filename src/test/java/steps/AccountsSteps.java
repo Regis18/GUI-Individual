@@ -53,4 +53,10 @@ public class AccountsSteps {
         pageTransporter.navigateToAccountSettingsPage(account.getUrlSettings());
         accountSettingsPage.setNameAccount(nameAccount);
     }
+
+    @When("^I enter to the Settings and delete the account with name \"([^\"]*)\"$")
+    public void iEnterToTheSettingsAndDeleteTheAccountWithName(String nameAccount) throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
 }

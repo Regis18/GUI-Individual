@@ -38,7 +38,7 @@ formatter.match({
   "location": "LoginSteps.logIn()"
 });
 formatter.result({
-  "duration": 27278926700,
+  "duration": 20807126118,
   "status": "passed"
 });
 formatter.match({
@@ -51,21 +51,81 @@ formatter.match({
   "location": "AccountsSteps.createANewAccountInPivotalTracker(String)"
 });
 formatter.result({
-  "duration": 4154549000,
+  "duration": 4871014010,
   "status": "passed"
 });
 formatter.match({
   "location": "AccountsSteps.seeInTheAccountsPageTheAccountCreated()"
 });
 formatter.result({
-  "duration": 41232800,
+  "duration": 34500351,
   "status": "passed"
 });
 formatter.match({
   "location": "AccountsSteps.seeTheNewAccountInTheAccountsPage()"
 });
 formatter.result({
-  "duration": 2097680100,
+  "duration": 2592726775,
   "status": "passed"
+});
+formatter.scenario({
+  "line": 9,
+  "name": "Configure the account name of an account created",
+  "description": "",
+  "id": "create,-update-and-delete-of-account;configure-the-account-name-of-an-account-created",
+  "type": "scenario",
+  "keyword": "Scenario"
+});
+formatter.step({
+  "comments": [
+    {
+      "line": 10,
+      "value": "#    Given I log with Username and Password into the Pivotal Tracker"
+    },
+    {
+      "line": 11,
+      "value": "#    And I create a new account \"New Account\" in Pivotal Tracker"
+    }
+  ],
+  "line": 12,
+  "name": "I configure the account Name \"Change Name\" and save the changes",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 13,
+  "name": "I should see the new account page",
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 14,
+  "name": "I should see the new account in the Accounts page",
+  "keyword": "And "
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Change Name",
+      "offset": 30
+    }
+  ],
+  "location": "AccountsSteps.configureTheAccountNameAndSaveTheChanges(String)"
+});
+formatter.result({
+  "duration": 1295092027,
+  "status": "passed"
+});
+formatter.match({
+  "location": "AccountsSteps.seeInTheAccountsPageTheAccountCreated()"
+});
+formatter.result({
+  "duration": 1154616,
+  "error_message": "java.lang.NullPointerException\r\n\tat steps.AccountsSteps.seeInTheAccountsPageTheAccountCreated(AccountsSteps.java:39)\r\n\tat ✽.Then I should see the new account page(src/test/resources/features/account.feature:13)\r\n",
+  "status": "failed"
+});
+formatter.match({
+  "location": "AccountsSteps.seeTheNewAccountInTheAccountsPage()"
+});
+formatter.result({
+  "status": "skipped"
 });
 });
