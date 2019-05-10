@@ -9,10 +9,13 @@ import pivotal.ui.BasePage;
 public class AccountSettingsPage extends BasePage {
     @FindBy(xpath = "//div[@class=\"content clearfix\"]")
     private WebElement accountForm;
+
     @FindBy(xpath = "//a[@data-method=\"delete\"]")
     private WebElement deleteLbl;
+
     @FindBy(id = "account_name")
     private WebElement nameAccountTxt;
+
     @FindBy(xpath = "//input[@name=\"commit\"]")
     private WebElement saveBtn;
 
@@ -22,8 +25,7 @@ public class AccountSettingsPage extends BasePage {
     }
 
     public String getURLAccountSettings() {
-        String urlSettings = driver.findElement(By.xpath("//a[@class=\"button\"] [normalize-space()=\"Settings\"]")).getAttribute("href");
-        return urlSettings;
+        return driver.findElement(By.xpath("//a[@class=\"button\"] [normalize-space()=\"Settings\"]")).getAttribute("href");
     }
 
     public AccountsPage deleteAccount() {

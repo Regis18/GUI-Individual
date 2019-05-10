@@ -11,7 +11,7 @@
         "steps": [
           {
             "result": {
-              "duration": 15362057183,
+              "duration": 30652634600,
               "status": "passed"
             },
             "line": 3,
@@ -24,14 +24,14 @@
         ]
       },
       {
-        "line": 6,
-        "name": "Create a new account in Pivotal Tracker",
+        "line": 37,
+        "name": "Add member to the account of Pivotal Tracker",
         "description": "",
-        "id": "create,-update-and-delete-of-account;create-a-new-account-in-pivotal-tracker",
+        "id": "create,-update-and-delete-of-account;add-member-to-the-account-of-pivotal-tracker;;2",
         "after": [
           {
             "result": {
-              "duration": 3138423907,
+              "duration": 4383894600,
               "status": "passed"
             },
             "match": {
@@ -40,140 +40,14 @@
           }
         ],
         "type": "scenario",
-        "keyword": "Scenario",
+        "keyword": "Scenario Outline",
         "steps": [
           {
             "result": {
-              "duration": 5303576315,
+              "duration": 5121247000,
               "status": "passed"
             },
-            "line": 7,
-            "name": "I create a new account \"New Account\" in Pivotal Tracker",
-            "match": {
-              "arguments": [
-                {
-                  "val": "New Account",
-                  "offset": 24
-                }
-              ],
-              "location": "AccountsSteps.createANewAccountInPivotalTracker(String)"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 44543798,
-              "status": "passed"
-            },
-            "line": 8,
-            "name": "I should see the new account page",
-            "match": {
-              "location": "AccountsSteps.seeInTheAccountsPageTheAccountCreated()"
-            },
-            "keyword": "Then "
-          },
-          {
-            "result": {
-              "duration": 1349823387,
-              "status": "passed"
-            },
-            "line": 9,
-            "name": "I navigate to Account page",
-            "match": {
-              "location": "AccountsSteps.navigateToAccountPage()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 120642822,
-              "status": "passed"
-            },
-            "line": 10,
-            "name": "I should see the new account in the Accounts page",
-            "match": {
-              "location": "AccountsSteps.seeTheNewAccountInTheAccountsPage()"
-            },
-            "keyword": "Then "
-          },
-          {
-            "result": {
-              "duration": 862170079,
-              "status": "passed"
-            },
-            "line": 11,
-            "name": "I navigate to Dashboard page",
-            "match": {
-              "location": "AccountsSteps.navigateToDashboardPage()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 804246848,
-              "status": "passed"
-            },
-            "line": 12,
-            "name": "I should see the new account in the Project Creation popup",
-            "match": {
-              "location": "AccountsSteps.seeTheNewAccountInTheProjectCreationPopup()"
-            },
-            "keyword": "Then "
-          }
-        ],
-        "tags": [
-          {
-            "line": 5,
-            "name": "@deleteAccount"
-          }
-        ]
-      },
-      {
-        "line": 2,
-        "name": "",
-        "description": "",
-        "type": "background",
-        "keyword": "Background",
-        "steps": [
-          {
-            "result": {
-              "duration": 5512222,
-              "status": "passed"
-            },
-            "line": 3,
-            "name": "I am logged in with Username and Password into the Pivotal Tracker",
-            "match": {
-              "location": "LoginSteps.logIn()"
-            },
-            "keyword": "Given "
-          }
-        ]
-      },
-      {
-        "line": 15,
-        "name": "Configure the account name of an account created",
-        "description": "",
-        "id": "create,-update-and-delete-of-account;configure-the-account-name-of-an-account-created",
-        "after": [
-          {
-            "result": {
-              "duration": 3148389097,
-              "status": "passed"
-            },
-            "match": {
-              "location": "AccountsSteps.deleteAccount()"
-            }
-          }
-        ],
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 3956060023,
-              "status": "passed"
-            },
-            "line": 16,
+            "line": 30,
             "name": "I create a new account \"New Account\" in Pivotal Tracker",
             "match": {
               "arguments": [
@@ -188,148 +62,690 @@
           },
           {
             "result": {
-              "duration": 2232732506,
+              "duration": 1497510300,
               "status": "passed"
             },
-            "line": 17,
-            "name": "I configure the account Name \"Change Name\" and save the changes",
+            "line": 31,
+            "name": "I add a Member \"gluisalberto68\", \"g.luisalberto68@gmail.com\" to the account and assign a Account Role \"Member\" with permission of project creator",
             "match": {
               "arguments": [
                 {
-                  "val": "Change Name",
-                  "offset": 30
+                  "val": "gluisalberto68",
+                  "offset": 16
+                },
+                {
+                  "val": "g.luisalberto68@gmail.com",
+                  "offset": 34
+                },
+                {
+                  "val": "Member",
+                  "offset": 103
                 }
               ],
-              "location": "AccountsSteps.configureTheAccountNameAndSaveTheChanges(String)"
+              "location": "AccountsSteps.addAMemberToTheAccountAndAssignAAccountRoleWithPermissionOfProjectCreator(String,String,String)"
             },
+            "matchedColumns": [
+              0,
+              1,
+              2
+            ],
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 33746430,
+              "duration": 490414900,
               "status": "passed"
             },
-            "line": 18,
-            "name": "I should see the new account page",
-            "match": {
-              "location": "AccountsSteps.seeInTheAccountsPageTheAccountCreated()"
-            },
-            "keyword": "Then "
-          },
-          {
-            "result": {
-              "duration": 1447048459,
-              "status": "passed"
-            },
-            "line": 19,
-            "name": "I navigate to Account page",
-            "match": {
-              "location": "AccountsSteps.navigateToAccountPage()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 138562460,
-              "status": "passed"
-            },
-            "line": 20,
-            "name": "I should see the new account in the Accounts page",
-            "match": {
-              "location": "AccountsSteps.seeTheNewAccountInTheAccountsPage()"
-            },
-            "keyword": "Then "
-          }
-        ],
-        "tags": [
-          {
-            "line": 14,
-            "name": "@deleteAccount"
-          }
-        ]
-      },
-      {
-        "line": 2,
-        "name": "",
-        "description": "",
-        "type": "background",
-        "keyword": "Background",
-        "steps": [
-          {
-            "result": {
-              "duration": 4868203,
-              "status": "passed"
-            },
-            "line": 3,
-            "name": "I am logged in with Username and Password into the Pivotal Tracker",
-            "match": {
-              "location": "LoginSteps.logIn()"
-            },
-            "keyword": "Given "
-          }
-        ]
-      },
-      {
-        "line": 22,
-        "name": "Delete a account in Pivotal Tracker",
-        "description": "",
-        "id": "create,-update-and-delete-of-account;delete-a-account-in-pivotal-tracker",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 3967861480,
-              "status": "passed"
-            },
-            "line": 23,
-            "name": "I create a new account \"New Account\" in Pivotal Tracker",
+            "line": 32,
+            "name": "I should see message of confirmation \"Updated member \u0027gluisalberto68\u0027\" in the Membership Page of Account",
             "match": {
               "arguments": [
                 {
-                  "val": "New Account",
-                  "offset": 24
+                  "val": "Updated member \u0027gluisalberto68\u0027",
+                  "offset": 38
                 }
               ],
-              "location": "AccountsSteps.createANewAccountInPivotalTracker(String)"
+              "location": "AccountsSteps.seeMessageOfConfirmationInTheMembershipPageOfAccount(String)"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 111134600,
+              "status": "passed"
+            },
+            "line": 33,
+            "name": "I should see the member that was added in the table of the Membership Page of Account",
+            "match": {
+              "location": "AccountsSteps.seeTheMemberThatWasAddedInTheTableOfTheMembershipPageOfAccount()"
             },
             "keyword": "And "
-          },
+          }
+        ],
+        "tags": [
+          {
+            "line": 28,
+            "name": "@deleteAccount"
+          }
+        ]
+      },
+      {
+        "line": 2,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
           {
             "result": {
-              "duration": 3572425634,
+              "duration": 7211500,
               "status": "passed"
             },
-            "line": 24,
-            "name": "I enter to the Settings and delete the account with name \"New Account\"",
+            "line": 3,
+            "name": "I am logged in with Username and Password into the Pivotal Tracker",
+            "match": {
+              "location": "LoginSteps.logIn()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "line": 38,
+        "name": "Add member to the account of Pivotal Tracker",
+        "description": "",
+        "id": "create,-update-and-delete-of-account;add-member-to-the-account-of-pivotal-tracker;;3",
+        "after": [
+          {
+            "result": {
+              "duration": 3959682300,
+              "status": "passed"
+            },
+            "match": {
+              "location": "AccountsSteps.deleteAccount()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 4275647600,
+              "status": "passed"
+            },
+            "line": 30,
+            "name": "I create a new account \"New Account\" in Pivotal Tracker",
             "match": {
               "arguments": [
                 {
                   "val": "New Account",
-                  "offset": 58
+                  "offset": 24
                 }
               ],
-              "location": "AccountsSteps.enterToTheSettingsAndDeleteTheAccountWithName(String)"
+              "location": "AccountsSteps.createANewAccountInPivotalTracker(String)"
             },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1646140400,
+              "status": "passed"
+            },
+            "line": 31,
+            "name": "I add a Member \"cxristianlujan05\", \"cxristian.lujan05@gmail.com\" to the account and assign a Account Role \"Admin\" with permission of project creator",
+            "match": {
+              "arguments": [
+                {
+                  "val": "cxristianlujan05",
+                  "offset": 16
+                },
+                {
+                  "val": "cxristian.lujan05@gmail.com",
+                  "offset": 36
+                },
+                {
+                  "val": "Admin",
+                  "offset": 107
+                }
+              ],
+              "location": "AccountsSteps.addAMemberToTheAccountAndAssignAAccountRoleWithPermissionOfProjectCreator(String,String,String)"
+            },
+            "matchedColumns": [
+              0,
+              1,
+              2
+            ],
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 51928209,
+              "duration": 547804100,
               "status": "passed"
             },
-            "line": 25,
-            "name": "I should see a yellow message \"New Account was successfully deleted.\"",
+            "line": 32,
+            "name": "I should see message of confirmation \"Updated member \u0027cxristianlujan05\u0027\" in the Membership Page of Account",
             "match": {
               "arguments": [
                 {
-                  "val": "New Account was successfully deleted.",
-                  "offset": 31
+                  "val": "Updated member \u0027cxristianlujan05\u0027",
+                  "offset": 38
                 }
               ],
-              "location": "AccountsSteps.seeAYellowMessage(String)"
+              "location": "AccountsSteps.seeMessageOfConfirmationInTheMembershipPageOfAccount(String)"
             },
+            "matchedColumns": [
+              0
+            ],
             "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 122639400,
+              "status": "passed"
+            },
+            "line": 33,
+            "name": "I should see the member that was added in the table of the Membership Page of Account",
+            "match": {
+              "location": "AccountsSteps.seeTheMemberThatWasAddedInTheTableOfTheMembershipPageOfAccount()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 28,
+            "name": "@deleteAccount"
+          }
+        ]
+      },
+      {
+        "line": 2,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 5857600,
+              "status": "passed"
+            },
+            "line": 3,
+            "name": "I am logged in with Username and Password into the Pivotal Tracker",
+            "match": {
+              "location": "LoginSteps.logIn()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "line": 39,
+        "name": "Add member to the account of Pivotal Tracker",
+        "description": "",
+        "id": "create,-update-and-delete-of-account;add-member-to-the-account-of-pivotal-tracker;;4",
+        "after": [
+          {
+            "result": {
+              "duration": 3741646900,
+              "status": "passed"
+            },
+            "match": {
+              "location": "AccountsSteps.deleteAccount()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 4489871200,
+              "status": "passed"
+            },
+            "line": 30,
+            "name": "I create a new account \"New Account\" in Pivotal Tracker",
+            "match": {
+              "arguments": [
+                {
+                  "val": "New Account",
+                  "offset": 24
+                }
+              ],
+              "location": "AccountsSteps.createANewAccountInPivotalTracker(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1958632200,
+              "status": "passed"
+            },
+            "line": 31,
+            "name": "I add a Member \"apitestingautomation\", \"api.testing.automation@gmail.com\" to the account and assign a Account Role \"Owner\" with permission of project creator",
+            "match": {
+              "arguments": [
+                {
+                  "val": "apitestingautomation",
+                  "offset": 16
+                },
+                {
+                  "val": "api.testing.automation@gmail.com",
+                  "offset": 40
+                },
+                {
+                  "val": "Owner",
+                  "offset": 116
+                }
+              ],
+              "location": "AccountsSteps.addAMemberToTheAccountAndAssignAAccountRoleWithPermissionOfProjectCreator(String,String,String)"
+            },
+            "matchedColumns": [
+              0,
+              1,
+              2
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 603383500,
+              "status": "passed"
+            },
+            "line": 32,
+            "name": "I should see message of confirmation \"Updated member \u0027apitestingautomation\u0027\" in the Membership Page of Account",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Updated member \u0027apitestingautomation\u0027",
+                  "offset": 38
+                }
+              ],
+              "location": "AccountsSteps.seeMessageOfConfirmationInTheMembershipPageOfAccount(String)"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 92974600,
+              "status": "passed"
+            },
+            "line": 33,
+            "name": "I should see the member that was added in the table of the Membership Page of Account",
+            "match": {
+              "location": "AccountsSteps.seeTheMemberThatWasAddedInTheTableOfTheMembershipPageOfAccount()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 28,
+            "name": "@deleteAccount"
+          }
+        ]
+      },
+      {
+        "line": 2,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 5092900,
+              "status": "passed"
+            },
+            "line": 3,
+            "name": "I am logged in with Username and Password into the Pivotal Tracker",
+            "match": {
+              "location": "LoginSteps.logIn()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "line": 51,
+        "name": "Add member to the account of Pivotal Tracker",
+        "description": "",
+        "id": "create,-update-and-delete-of-account;add-member-to-the-account-of-pivotal-tracker;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 4004762200,
+              "status": "passed"
+            },
+            "line": 44,
+            "name": "I create a new account \"New Account\" in Pivotal Tracker",
+            "match": {
+              "arguments": [
+                {
+                  "val": "New Account",
+                  "offset": 24
+                }
+              ],
+              "location": "AccountsSteps.createANewAccountInPivotalTracker(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 2171941400,
+              "status": "passed"
+            },
+            "line": 45,
+            "name": "I add a Member \"gluisalberto68\", \"g.luisalberto68@gmail.com\" to the account and assign a Account Role \"Member\" without permission of project creator",
+            "match": {
+              "arguments": [
+                {
+                  "val": "gluisalberto68",
+                  "offset": 16
+                },
+                {
+                  "val": "g.luisalberto68@gmail.com",
+                  "offset": 34
+                },
+                {
+                  "val": "Member",
+                  "offset": 103
+                }
+              ],
+              "location": "AccountsSteps.iAddAMemberToTheAccountAndAssignAAccountRoleWithoutPermissionOfProjectCreator(String,String,String)"
+            },
+            "matchedColumns": [
+              0,
+              1,
+              2
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 480105900,
+              "status": "passed"
+            },
+            "line": 46,
+            "name": "I should see message of confirmation \"Updated member \u0027gluisalberto68\u0027\" in the Membership Page of Account",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Updated member \u0027gluisalberto68\u0027",
+                  "offset": 38
+                }
+              ],
+              "location": "AccountsSteps.seeMessageOfConfirmationInTheMembershipPageOfAccount(String)"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 106435800,
+              "status": "passed"
+            },
+            "line": 47,
+            "name": "I should see the member that was added in the table of the Membership Page of Account",
+            "match": {
+              "location": "AccountsSteps.seeTheMemberThatWasAddedInTheTableOfTheMembershipPageOfAccount()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 42,
+            "name": "@delete_account"
+          }
+        ]
+      },
+      {
+        "line": 2,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 17540500,
+              "status": "passed"
+            },
+            "line": 3,
+            "name": "I am logged in with Username and Password into the Pivotal Tracker",
+            "match": {
+              "location": "LoginSteps.logIn()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "line": 52,
+        "name": "Add member to the account of Pivotal Tracker",
+        "description": "",
+        "id": "create,-update-and-delete-of-account;add-member-to-the-account-of-pivotal-tracker;;3",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 4857633100,
+              "status": "passed"
+            },
+            "line": 44,
+            "name": "I create a new account \"New Account\" in Pivotal Tracker",
+            "match": {
+              "arguments": [
+                {
+                  "val": "New Account",
+                  "offset": 24
+                }
+              ],
+              "location": "AccountsSteps.createANewAccountInPivotalTracker(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1948490400,
+              "status": "passed"
+            },
+            "line": 45,
+            "name": "I add a Member \"cxristianlujan05\", \"cxristian.lujan05@gmail.com\" to the account and assign a Account Role \"Admin\" without permission of project creator",
+            "match": {
+              "arguments": [
+                {
+                  "val": "cxristianlujan05",
+                  "offset": 16
+                },
+                {
+                  "val": "cxristian.lujan05@gmail.com",
+                  "offset": 36
+                },
+                {
+                  "val": "Admin",
+                  "offset": 107
+                }
+              ],
+              "location": "AccountsSteps.iAddAMemberToTheAccountAndAssignAAccountRoleWithoutPermissionOfProjectCreator(String,String,String)"
+            },
+            "matchedColumns": [
+              0,
+              1,
+              2
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 726986400,
+              "status": "passed"
+            },
+            "line": 46,
+            "name": "I should see message of confirmation \"Updated member \u0027cxristianlujan05\u0027\" in the Membership Page of Account",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Updated member \u0027cxristianlujan05\u0027",
+                  "offset": 38
+                }
+              ],
+              "location": "AccountsSteps.seeMessageOfConfirmationInTheMembershipPageOfAccount(String)"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 147136600,
+              "status": "passed"
+            },
+            "line": 47,
+            "name": "I should see the member that was added in the table of the Membership Page of Account",
+            "match": {
+              "location": "AccountsSteps.seeTheMemberThatWasAddedInTheTableOfTheMembershipPageOfAccount()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 42,
+            "name": "@delete_account"
+          }
+        ]
+      },
+      {
+        "line": 2,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 6302500,
+              "status": "passed"
+            },
+            "line": 3,
+            "name": "I am logged in with Username and Password into the Pivotal Tracker",
+            "match": {
+              "location": "LoginSteps.logIn()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "line": 53,
+        "name": "Add member to the account of Pivotal Tracker",
+        "description": "",
+        "id": "create,-update-and-delete-of-account;add-member-to-the-account-of-pivotal-tracker;;4",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 9004638700,
+              "status": "passed"
+            },
+            "line": 44,
+            "name": "I create a new account \"New Account\" in Pivotal Tracker",
+            "match": {
+              "arguments": [
+                {
+                  "val": "New Account",
+                  "offset": 24
+                }
+              ],
+              "location": "AccountsSteps.createANewAccountInPivotalTracker(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 2957882400,
+              "status": "passed"
+            },
+            "line": 45,
+            "name": "I add a Member \"apitestingautomation\", \"api.testing.automation@gmail.com\" to the account and assign a Account Role \"Owner\" without permission of project creator",
+            "match": {
+              "arguments": [
+                {
+                  "val": "apitestingautomation",
+                  "offset": 16
+                },
+                {
+                  "val": "api.testing.automation@gmail.com",
+                  "offset": 40
+                },
+                {
+                  "val": "Owner",
+                  "offset": 116
+                }
+              ],
+              "location": "AccountsSteps.iAddAMemberToTheAccountAndAssignAAccountRoleWithoutPermissionOfProjectCreator(String,String,String)"
+            },
+            "matchedColumns": [
+              0,
+              1,
+              2
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 927684900,
+              "status": "passed"
+            },
+            "line": 46,
+            "name": "I should see message of confirmation \"Updated member \u0027apitestingautomation\u0027\" in the Membership Page of Account",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Updated member \u0027apitestingautomation\u0027",
+                  "offset": 38
+                }
+              ],
+              "location": "AccountsSteps.seeMessageOfConfirmationInTheMembershipPageOfAccount(String)"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 124336800,
+              "status": "passed"
+            },
+            "line": 47,
+            "name": "I should see the member that was added in the table of the Membership Page of Account",
+            "match": {
+              "location": "AccountsSteps.seeTheMemberThatWasAddedInTheTableOfTheMembershipPageOfAccount()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 42,
+            "name": "@delete_account"
           }
         ]
       }

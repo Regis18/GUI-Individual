@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import pivotal.entities.MatchValue;
 import pivotal.ui.BasePage;
 
 public class AccountsPage extends BasePage {
@@ -34,14 +35,7 @@ public class AccountsPage extends BasePage {
     }
 
     public Boolean verifyAccountInList(String nameAccount) {
-        for (WebElement e: driver.findElements(By.xpath("//div[@id=\"accounts_module\"]//div[@class=\"name\"]"))) {
-            if (e.getText().equals(nameAccount.toUpperCase())){
-                return true;
-            } else {
-                continue;
-            }
-        }
-        return false;
+        return MatchValue.existValueInList(nameAccount, driver.findElements(By.xpath("//div[@id=\"accounts_module\"]//div[@class=\"name\"]")));
     }
 
     public String getMessageDelete() {

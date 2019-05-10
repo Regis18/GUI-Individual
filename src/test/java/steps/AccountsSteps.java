@@ -1,6 +1,8 @@
 package steps;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -21,6 +23,7 @@ public class AccountsSteps {
     private AccountSettingsPage accountSettingsPage;
     private DashboardPage dashboardPage;
     private CreateProjectPopup createProjectPopup;
+    private AccountMembershipsPage accountMembershipsPage;
 
 
     @When("^I create a new account \"([^\"]*)\" in Pivotal Tracker$")
@@ -80,14 +83,43 @@ public class AccountsSteps {
         assertEquals(message, accountsPage.getMessageDelete());
     }
 
+
+    @When("^I add a Member \"([^\"]*)\", \"([^\"]*)\" to the account and assign a Account Role \"([^\"]*)\" with permission of project creator$")
+    public void addAMemberToTheAccountAndAssignAAccountRoleWithPermissionOfProjectCreator(String member, String email, String role) {
+        account.setNameMember(member);
+        account.setRoleMember(role);
+        account.setProjectCreator(true);
+        accountMembershipsPage = pageTransporter.navigateToAccountMembershipPage(account.getUrlAccountMember());
+        accountMembershipsPage.addAccountMember(email, role, true);
+    }
+
+
+    @Then("^I should see message of confirmation \"([^\"]*)\" in the Membership Page of Account$")
+    public void seeMessageOfConfirmationInTheMembershipPageOfAccount(String message) {
+        assertTrue(accountMembershipsPage.isMessageConfirmation(message), "The message is not the correct");
+    }
+
+    @And("^I should see the member that was added in the table of the Membership Page of Account$")
+    public void seeTheMemberThatWasAddedInTheTableOfTheMembershipPageOfAccount() {
+        assertTrue(accountMembershipsPage.isMemberInTheList(account.getNameMember(),
+                account.getRoleMember(),
+                true),
+                "The member added is not correct" + account.getNameMember());
+    }
+
     @After("@deleteAccount")
     public void deleteAccount() {
         pageTransporter.navigateToAccountSettingsPage(account.getUrlSettings());
         accountSettingsPage.deleteAccount();
     }
 
-    @When("^I add a Member \"([^\"]*)\" to the account and assign a Account Role \"([^\"]*)\" with permission of project creator$")
-    public void addAMemberToTheAccountAndAssignAAccountRoleWithPermissionOfProjectCreator(String member, String role) {
-        pageTransporter.navigateToAccountSettingsPage(account.getUrlAccountMember());
+
+    @When("^I add a Member \"([^\"]*)\", \"([^\"]*)\" to the account and assign a Account Role \"([^\"]*)\" without permission of project creator$")
+    public void iAddAMemberToTheAccountAndAssignAAccountRoleWithoutPermissionOfProjectCreator(String member, String email, String role) {
+        account.setNameMember(member);
+        account.setRoleMember(role);
+        account.setProjectCreator(true);
+        accountMembershipsPage = pageTransporter.navigateToAccountMembershipPage(account.getUrlAccountMember());
+        accountMembershipsPage.addAccountMember(email, role, false);
     }
 }
