@@ -1,17 +1,12 @@
 package steps;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.After;
-import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import pivotal.entities.Accounts;
 import pivotal.ui.components.AccountBar;
-import pivotal.ui.pages.AccountSettingsPage;
-import pivotal.ui.pages.AccountsPage;
-import pivotal.ui.pages.CreateAccountPopup;
-import pivotal.ui.pages.PageTransporter;
+import pivotal.ui.pages.*;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
@@ -23,7 +18,9 @@ public class AccountsSteps {
     private AccountBar accountBar;
     private PageTransporter pageTransporter = PageTransporter.getInstance();
     private Accounts account = new Accounts();
-    private AccountSettingsPage accountSettingsPage = new AccountSettingsPage();
+    private AccountSettingsPage accountSettingsPage;
+    private DashboardPage dashboardPage;
+    private CreateProjectPopup createProjectPopup;
 
 
     @When("^I create a new account \"([^\"]*)\" in Pivotal Tracker$")
@@ -32,6 +29,7 @@ public class AccountsSteps {
         accountsPage = pageTransporter.navigateToAccountsPage();
         accountPopup = accountsPage.clickNewAccountCreateBtn();
         accountBar = accountPopup.createNewAccount(nameAccount);
+        accountSettingsPage = new AccountSettingsPage();
         account.setUrlSettings(accountSettingsPage.getURLAccountSettings());
     }
 
@@ -54,9 +52,9 @@ public class AccountsSteps {
     }
 
     @When("^I enter to the Settings and delete the account with name \"([^\"]*)\"$")
-    public void iEnterToTheSettingsAndDeleteTheAccountWithName(String nameAccount) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    public void enterToTheSettingsAndDeleteTheAccountWithName(String nameAccount) {
+        accountSettingsPage = pageTransporter.navigateToAccountSettingsPage(account.getUrlSettings());
+        accountsPage = accountSettingsPage.deleteAccount();
     }
 
     @When("^I navigate to Account page$")
@@ -64,24 +62,32 @@ public class AccountsSteps {
         accountsPage = pageTransporter.navigateToAccountsPage();
     }
 
-    @After("@deleteAccount")
-    public void deleteAccount() {
-        System.out.println("Imprimir despues de cada scenario");
-
-    }
-    @Before("@ver")
-    public void ver() {
-        System.out.println("Donde vas");
-    }
 
     @When("^I navigate to Dashboard page$")
-    public void iNavigateToDashboardPage() {
-
+    public void navigateToDashboardPage() {
+        dashboardPage = pageTransporter.navigateToDashboardPage();
     }
 
     @Then("^I should see the new account in the Project Creation popup$")
-    public void iShouldSeeTheNewAccountInTheProjectCreationPopup() {
+    public void seeTheNewAccountInTheProjectCreationPopup() {
+        createProjectPopup = dashboardPage.clickCreateProjectBtn();
+        createProjectPopup.verifyAccountInList(account.getNameAccount());
+    }
+
+
+    @Then("^I should see a yellow message \"([^\"]*)\"$")
+    public void seeAYellowMessage(String message) {
+        assertEquals(message, accountsPage.getMessageDelete());
+    }
+
+    @After("@deleteAccount")
+    public void deleteAccount() {
         pageTransporter.navigateToAccountSettingsPage(account.getUrlSettings());
         accountSettingsPage.deleteAccount();
+    }
+
+    @When("^I add a Member \"([^\"]*)\" to the account and assign a Account Role \"([^\"]*)\" with permission of project creator$")
+    public void addAMemberToTheAccountAndAssignAAccountRoleWithPermissionOfProjectCreator(String member, String role) {
+        pageTransporter.navigateToAccountSettingsPage(account.getUrlAccountMember());
     }
 }

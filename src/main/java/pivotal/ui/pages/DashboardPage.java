@@ -13,12 +13,16 @@ public class DashboardPage extends BasePage {
     @FindBy(id = "create-project-button")
     private WebElement createProjectBtn;
 
+
+
     @Override
     public void waitUntilPageObjectIsLoaded() {
         wait.until(ExpectedConditions.visibilityOf(dashboardFrame));
     }
 
-    public void clickCreateProjectBtn() {
+    public CreateProjectPopup clickCreateProjectBtn() {
         createProjectBtn.click();
+        return new CreateProjectPopup();
     }
+
 }

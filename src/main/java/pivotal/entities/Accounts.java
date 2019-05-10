@@ -21,6 +21,9 @@ public class Accounts {
 
     public void setUrlSettings(String urlSettings) {
         this.urlSettings = urlSettings;
+        this.urlProjects = urlSettings.replace("settings", "projects");
+        this.urlAccountPlans = urlSettings.replace("settings", "plans");
+        this.urlAccountMember = urlSettings.replace("settings", "memberships");
     }
 
     public String getUrlProjects() {

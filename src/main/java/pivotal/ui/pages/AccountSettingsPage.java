@@ -26,10 +26,10 @@ public class AccountSettingsPage extends BasePage {
         return urlSettings;
     }
 
-    public void deleteAccount() {
+    public AccountsPage deleteAccount() {
         deleteLbl.click();
         driver.switchTo().alert().accept();
-
+        return new AccountsPage();
     }
 
     public void setNameAccount(String nameAccount) {

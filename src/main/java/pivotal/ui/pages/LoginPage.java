@@ -1,9 +1,7 @@
 package pivotal.ui.pages;
 
-import org.openqa.selenium.WebDriverInfo;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import pivotal.ui.BasePage;
 

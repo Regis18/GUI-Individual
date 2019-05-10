@@ -19,6 +19,9 @@ public class AccountsPage extends BasePage {
     @FindBy(xpath = "//div[@class=\"content clearfix\"]")
     private WebElement accountForm;
 
+    @FindBy(id = "notice")
+    private WebElement messageDelete;
+
 
     @Override
     public void waitUntilPageObjectIsLoaded() {
@@ -39,5 +42,9 @@ public class AccountsPage extends BasePage {
             }
         }
         return false;
+    }
+
+    public String getMessageDelete() {
+        return messageDelete.getText();
     }
 }

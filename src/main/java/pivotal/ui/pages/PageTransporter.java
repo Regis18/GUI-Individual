@@ -83,8 +83,18 @@ public class PageTransporter {
         return new AccountsPage();
     }
 
+    public DashboardPage navigateToDashboardPage() {
+        goToURL(baseURL.concat("dashboard"));
+        return new DashboardPage();
+    }
+
     public AccountSettingsPage navigateToAccountSettingsPage(String url) {
         goToURL(url);
         return new AccountSettingsPage();
+    }
+
+    public AccountMembershipsPage navigateToAccountMembershipPage(String url) {
+        goToURL(url);
+        return new AccountMembershipsPage();
     }
 }
