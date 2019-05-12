@@ -99,444 +99,56 @@ formatter.scenarioOutline({
     {
       "line": 27,
       "value": "#"
-    }
-  ],
-  "line": 29,
-  "name": "Add member to the account of Pivotal Tracker",
-  "description": "",
-  "id": "create,-update-and-delete-of-account;add-member-to-the-account-of-pivotal-tracker",
-  "type": "scenario_outline",
-  "keyword": "Scenario Outline",
-  "tags": [
+    },
     {
       "line": 28,
-      "name": "@deleteAccount"
-    }
-  ]
-});
-formatter.step({
-  "line": 30,
-  "name": "I create a new account \"New Account\" in Pivotal Tracker",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 31,
-  "name": "I add a Member \"\u003cnameMember\u003e\", \"\u003cmemberEmail\u003e\" to the account and assign a Account Role \"\u003cRole\u003e\" with permission of project creator",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 32,
-  "name": "I should see message of confirmation \"Updated member \u0027\u003cnameMember\u003e\u0027\" in the Membership Page of Account",
-  "keyword": "Then "
-});
-formatter.step({
-  "line": 33,
-  "name": "I should see the member that was added in the table of the Membership Page of Account",
-  "keyword": "And "
-});
-formatter.examples({
-  "line": 35,
-  "name": "",
-  "description": "",
-  "id": "create,-update-and-delete-of-account;add-member-to-the-account-of-pivotal-tracker;",
-  "rows": [
+      "value": "#  @deleteAccount"
+    },
     {
-      "cells": [
-        "nameMember",
-        "memberEmail",
-        "Role"
-      ],
+      "line": 29,
+      "value": "#  Scenario Outline: Add member to the account of Pivotal Tracker"
+    },
+    {
+      "line": 30,
+      "value": "#    Given I create a new account \"New Account\" in Pivotal Tracker"
+    },
+    {
+      "line": 31,
+      "value": "#    When I add a Member \"\u003cnameMember\u003e\", \"\u003cmemberEmail\u003e\" to the account and assign a Account Role \"\u003cRole\u003e\" with permission of project creator"
+    },
+    {
+      "line": 32,
+      "value": "#    Then I should see message of confirmation \"Updated member \u0027\u003cnameMember\u003e\u0027\" in the Membership Page of Account"
+    },
+    {
+      "line": 33,
+      "value": "#    And I should see the member that was added in the table of the Membership Page of Account"
+    },
+    {
+      "line": 34,
+      "value": "#"
+    },
+    {
+      "line": 35,
+      "value": "#    Examples:"
+    },
+    {
       "line": 36,
-      "id": "create,-update-and-delete-of-account;add-member-to-the-account-of-pivotal-tracker;;1"
+      "value": "#      |nameMember|memberEmail\t|Role|"
     },
     {
-      "cells": [
-        "gluisalberto68",
-        "g.luisalberto68@gmail.com",
-        "Member"
-      ],
       "line": 37,
-      "id": "create,-update-and-delete-of-account;add-member-to-the-account-of-pivotal-tracker;;2"
+      "value": "#      |gluisalberto68|g.luisalberto68@gmail.com|Member|"
     },
     {
-      "cells": [
-        "cxristianlujan05",
-        "cxristian.lujan05@gmail.com",
-        "Admin"
-      ],
       "line": 38,
-      "id": "create,-update-and-delete-of-account;add-member-to-the-account-of-pivotal-tracker;;3"
+      "value": "#      |cxristianlujan05|cxristian.lujan05@gmail.com\t|Admin|"
     },
     {
-      "cells": [
-        "apitestingautomation",
-        "api.testing.automation@gmail.com",
-        "Owner"
-      ],
       "line": 39,
-      "id": "create,-update-and-delete-of-account;add-member-to-the-account-of-pivotal-tracker;;4"
+      "value": "#      |apitestingautomation|api.testing.automation@gmail.com|Owner|"
     }
   ],
-  "keyword": "Examples"
-});
-formatter.background({
-  "line": 2,
-  "name": "",
-  "description": "",
-  "type": "background",
-  "keyword": "Background"
-});
-formatter.step({
-  "line": 3,
-  "name": "I am logged in with Username and Password into the Pivotal Tracker",
-  "keyword": "Given "
-});
-formatter.match({
-  "location": "LoginSteps.logIn()"
-});
-formatter.result({
-  "duration": 30652634600,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 37,
-  "name": "Add member to the account of Pivotal Tracker",
-  "description": "",
-  "id": "create,-update-and-delete-of-account;add-member-to-the-account-of-pivotal-tracker;;2",
-  "type": "scenario",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "line": 28,
-      "name": "@deleteAccount"
-    }
-  ]
-});
-formatter.step({
-  "line": 30,
-  "name": "I create a new account \"New Account\" in Pivotal Tracker",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 31,
-  "name": "I add a Member \"gluisalberto68\", \"g.luisalberto68@gmail.com\" to the account and assign a Account Role \"Member\" with permission of project creator",
-  "matchedColumns": [
-    0,
-    1,
-    2
-  ],
-  "keyword": "When "
-});
-formatter.step({
-  "line": 32,
-  "name": "I should see message of confirmation \"Updated member \u0027gluisalberto68\u0027\" in the Membership Page of Account",
-  "matchedColumns": [
-    0
-  ],
-  "keyword": "Then "
-});
-formatter.step({
-  "line": 33,
-  "name": "I should see the member that was added in the table of the Membership Page of Account",
-  "keyword": "And "
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "New Account",
-      "offset": 24
-    }
-  ],
-  "location": "AccountsSteps.createANewAccountInPivotalTracker(String)"
-});
-formatter.result({
-  "duration": 5121247000,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "gluisalberto68",
-      "offset": 16
-    },
-    {
-      "val": "g.luisalberto68@gmail.com",
-      "offset": 34
-    },
-    {
-      "val": "Member",
-      "offset": 103
-    }
-  ],
-  "location": "AccountsSteps.addAMemberToTheAccountAndAssignAAccountRoleWithPermissionOfProjectCreator(String,String,String)"
-});
-formatter.result({
-  "duration": 1497510300,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "Updated member \u0027gluisalberto68\u0027",
-      "offset": 38
-    }
-  ],
-  "location": "AccountsSteps.seeMessageOfConfirmationInTheMembershipPageOfAccount(String)"
-});
-formatter.result({
-  "duration": 490414900,
-  "status": "passed"
-});
-formatter.match({
-  "location": "AccountsSteps.seeTheMemberThatWasAddedInTheTableOfTheMembershipPageOfAccount()"
-});
-formatter.result({
-  "duration": 111134600,
-  "status": "passed"
-});
-formatter.after({
-  "duration": 4383894600,
-  "status": "passed"
-});
-formatter.background({
-  "line": 2,
-  "name": "",
-  "description": "",
-  "type": "background",
-  "keyword": "Background"
-});
-formatter.step({
-  "line": 3,
-  "name": "I am logged in with Username and Password into the Pivotal Tracker",
-  "keyword": "Given "
-});
-formatter.match({
-  "location": "LoginSteps.logIn()"
-});
-formatter.result({
-  "duration": 7211500,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 38,
-  "name": "Add member to the account of Pivotal Tracker",
-  "description": "",
-  "id": "create,-update-and-delete-of-account;add-member-to-the-account-of-pivotal-tracker;;3",
-  "type": "scenario",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "line": 28,
-      "name": "@deleteAccount"
-    }
-  ]
-});
-formatter.step({
-  "line": 30,
-  "name": "I create a new account \"New Account\" in Pivotal Tracker",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 31,
-  "name": "I add a Member \"cxristianlujan05\", \"cxristian.lujan05@gmail.com\" to the account and assign a Account Role \"Admin\" with permission of project creator",
-  "matchedColumns": [
-    0,
-    1,
-    2
-  ],
-  "keyword": "When "
-});
-formatter.step({
-  "line": 32,
-  "name": "I should see message of confirmation \"Updated member \u0027cxristianlujan05\u0027\" in the Membership Page of Account",
-  "matchedColumns": [
-    0
-  ],
-  "keyword": "Then "
-});
-formatter.step({
-  "line": 33,
-  "name": "I should see the member that was added in the table of the Membership Page of Account",
-  "keyword": "And "
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "New Account",
-      "offset": 24
-    }
-  ],
-  "location": "AccountsSteps.createANewAccountInPivotalTracker(String)"
-});
-formatter.result({
-  "duration": 4275647600,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "cxristianlujan05",
-      "offset": 16
-    },
-    {
-      "val": "cxristian.lujan05@gmail.com",
-      "offset": 36
-    },
-    {
-      "val": "Admin",
-      "offset": 107
-    }
-  ],
-  "location": "AccountsSteps.addAMemberToTheAccountAndAssignAAccountRoleWithPermissionOfProjectCreator(String,String,String)"
-});
-formatter.result({
-  "duration": 1646140400,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "Updated member \u0027cxristianlujan05\u0027",
-      "offset": 38
-    }
-  ],
-  "location": "AccountsSteps.seeMessageOfConfirmationInTheMembershipPageOfAccount(String)"
-});
-formatter.result({
-  "duration": 547804100,
-  "status": "passed"
-});
-formatter.match({
-  "location": "AccountsSteps.seeTheMemberThatWasAddedInTheTableOfTheMembershipPageOfAccount()"
-});
-formatter.result({
-  "duration": 122639400,
-  "status": "passed"
-});
-formatter.after({
-  "duration": 3959682300,
-  "status": "passed"
-});
-formatter.background({
-  "line": 2,
-  "name": "",
-  "description": "",
-  "type": "background",
-  "keyword": "Background"
-});
-formatter.step({
-  "line": 3,
-  "name": "I am logged in with Username and Password into the Pivotal Tracker",
-  "keyword": "Given "
-});
-formatter.match({
-  "location": "LoginSteps.logIn()"
-});
-formatter.result({
-  "duration": 5857600,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 39,
-  "name": "Add member to the account of Pivotal Tracker",
-  "description": "",
-  "id": "create,-update-and-delete-of-account;add-member-to-the-account-of-pivotal-tracker;;4",
-  "type": "scenario",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "line": 28,
-      "name": "@deleteAccount"
-    }
-  ]
-});
-formatter.step({
-  "line": 30,
-  "name": "I create a new account \"New Account\" in Pivotal Tracker",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 31,
-  "name": "I add a Member \"apitestingautomation\", \"api.testing.automation@gmail.com\" to the account and assign a Account Role \"Owner\" with permission of project creator",
-  "matchedColumns": [
-    0,
-    1,
-    2
-  ],
-  "keyword": "When "
-});
-formatter.step({
-  "line": 32,
-  "name": "I should see message of confirmation \"Updated member \u0027apitestingautomation\u0027\" in the Membership Page of Account",
-  "matchedColumns": [
-    0
-  ],
-  "keyword": "Then "
-});
-formatter.step({
-  "line": 33,
-  "name": "I should see the member that was added in the table of the Membership Page of Account",
-  "keyword": "And "
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "New Account",
-      "offset": 24
-    }
-  ],
-  "location": "AccountsSteps.createANewAccountInPivotalTracker(String)"
-});
-formatter.result({
-  "duration": 4489871200,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "apitestingautomation",
-      "offset": 16
-    },
-    {
-      "val": "api.testing.automation@gmail.com",
-      "offset": 40
-    },
-    {
-      "val": "Owner",
-      "offset": 116
-    }
-  ],
-  "location": "AccountsSteps.addAMemberToTheAccountAndAssignAAccountRoleWithPermissionOfProjectCreator(String,String,String)"
-});
-formatter.result({
-  "duration": 1958632200,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "Updated member \u0027apitestingautomation\u0027",
-      "offset": 38
-    }
-  ],
-  "location": "AccountsSteps.seeMessageOfConfirmationInTheMembershipPageOfAccount(String)"
-});
-formatter.result({
-  "duration": 603383500,
-  "status": "passed"
-});
-formatter.match({
-  "location": "AccountsSteps.seeTheMemberThatWasAddedInTheTableOfTheMembershipPageOfAccount()"
-});
-formatter.result({
-  "duration": 92974600,
-  "status": "passed"
-});
-formatter.after({
-  "duration": 3741646900,
-  "status": "passed"
-});
-formatter.scenarioOutline({
   "line": 43,
   "name": "Add member to the account of Pivotal Tracker",
   "description": "",
@@ -546,7 +158,7 @@ formatter.scenarioOutline({
   "tags": [
     {
       "line": 42,
-      "name": "@delete_account"
+      "name": "@deleteAccount"
     }
   ]
 });
@@ -631,7 +243,7 @@ formatter.match({
   "location": "LoginSteps.logIn()"
 });
 formatter.result({
-  "duration": 5092900,
+  "duration": 32208439387,
   "status": "passed"
 });
 formatter.scenario({
@@ -644,7 +256,7 @@ formatter.scenario({
   "tags": [
     {
       "line": 42,
-      "name": "@delete_account"
+      "name": "@deleteAccount"
     }
   ]
 });
@@ -686,7 +298,7 @@ formatter.match({
   "location": "AccountsSteps.createANewAccountInPivotalTracker(String)"
 });
 formatter.result({
-  "duration": 4004762200,
+  "duration": 4994584423,
   "status": "passed"
 });
 formatter.match({
@@ -707,7 +319,7 @@ formatter.match({
   "location": "AccountsSteps.iAddAMemberToTheAccountAndAssignAAccountRoleWithoutPermissionOfProjectCreator(String,String,String)"
 });
 formatter.result({
-  "duration": 2171941400,
+  "duration": 2032247567,
   "status": "passed"
 });
 formatter.match({
@@ -720,14 +332,18 @@ formatter.match({
   "location": "AccountsSteps.seeMessageOfConfirmationInTheMembershipPageOfAccount(String)"
 });
 formatter.result({
-  "duration": 480105900,
+  "duration": 535686612,
   "status": "passed"
 });
 formatter.match({
   "location": "AccountsSteps.seeTheMemberThatWasAddedInTheTableOfTheMembershipPageOfAccount()"
 });
 formatter.result({
-  "duration": 106435800,
+  "duration": 97874224,
+  "status": "passed"
+});
+formatter.after({
+  "duration": 3590699783,
   "status": "passed"
 });
 formatter.background({
@@ -746,7 +362,7 @@ formatter.match({
   "location": "LoginSteps.logIn()"
 });
 formatter.result({
-  "duration": 17540500,
+  "duration": 6416243,
   "status": "passed"
 });
 formatter.scenario({
@@ -759,7 +375,7 @@ formatter.scenario({
   "tags": [
     {
       "line": 42,
-      "name": "@delete_account"
+      "name": "@deleteAccount"
     }
   ]
 });
@@ -801,7 +417,7 @@ formatter.match({
   "location": "AccountsSteps.createANewAccountInPivotalTracker(String)"
 });
 formatter.result({
-  "duration": 4857633100,
+  "duration": 3968930996,
   "status": "passed"
 });
 formatter.match({
@@ -822,7 +438,7 @@ formatter.match({
   "location": "AccountsSteps.iAddAMemberToTheAccountAndAssignAAccountRoleWithoutPermissionOfProjectCreator(String,String,String)"
 });
 formatter.result({
-  "duration": 1948490400,
+  "duration": 1915010862,
   "status": "passed"
 });
 formatter.match({
@@ -835,14 +451,18 @@ formatter.match({
   "location": "AccountsSteps.seeMessageOfConfirmationInTheMembershipPageOfAccount(String)"
 });
 formatter.result({
-  "duration": 726986400,
+  "duration": 884679957,
   "status": "passed"
 });
 formatter.match({
   "location": "AccountsSteps.seeTheMemberThatWasAddedInTheTableOfTheMembershipPageOfAccount()"
 });
 formatter.result({
-  "duration": 147136600,
+  "duration": 118355399,
+  "status": "passed"
+});
+formatter.after({
+  "duration": 8348217615,
   "status": "passed"
 });
 formatter.background({
@@ -861,7 +481,7 @@ formatter.match({
   "location": "LoginSteps.logIn()"
 });
 formatter.result({
-  "duration": 6302500,
+  "duration": 6100221,
   "status": "passed"
 });
 formatter.scenario({
@@ -874,7 +494,7 @@ formatter.scenario({
   "tags": [
     {
       "line": 42,
-      "name": "@delete_account"
+      "name": "@deleteAccount"
     }
   ]
 });
@@ -916,7 +536,7 @@ formatter.match({
   "location": "AccountsSteps.createANewAccountInPivotalTracker(String)"
 });
 formatter.result({
-  "duration": 9004638700,
+  "duration": 11823404919,
   "status": "passed"
 });
 formatter.match({
@@ -937,7 +557,7 @@ formatter.match({
   "location": "AccountsSteps.iAddAMemberToTheAccountAndAssignAAccountRoleWithoutPermissionOfProjectCreator(String,String,String)"
 });
 formatter.result({
-  "duration": 2957882400,
+  "duration": 3078115325,
   "status": "passed"
 });
 formatter.match({
@@ -950,14 +570,18 @@ formatter.match({
   "location": "AccountsSteps.seeMessageOfConfirmationInTheMembershipPageOfAccount(String)"
 });
 formatter.result({
-  "duration": 927684900,
+  "duration": 4119175604,
   "status": "passed"
 });
 formatter.match({
   "location": "AccountsSteps.seeTheMemberThatWasAddedInTheTableOfTheMembershipPageOfAccount()"
 });
 formatter.result({
-  "duration": 124336800,
+  "duration": 83746429,
+  "status": "passed"
+});
+formatter.after({
+  "duration": 10187015275,
   "status": "passed"
 });
 });

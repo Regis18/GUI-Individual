@@ -5,7 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import pivotal.entities.MatchValue;
 import pivotal.ui.BasePage;
 
 public class AccountMembershipsPage extends BasePage {

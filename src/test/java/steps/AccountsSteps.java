@@ -78,7 +78,7 @@ public class AccountsSteps {
     }
 
 
-    @Then("^I should see a yellow message \"([^\"]*)\"$")
+    @Then("^I should see a yellow message \"([^\"]*)\" in the Accounts Page$")
     public void seeAYellowMessage(String message) {
         assertEquals(message, accountsPage.getMessageDelete());
     }
@@ -107,12 +107,6 @@ public class AccountsSteps {
                 "The member added is not correct" + account.getNameMember());
     }
 
-    @After("@deleteAccount")
-    public void deleteAccount() {
-        pageTransporter.navigateToAccountSettingsPage(account.getUrlSettings());
-        accountSettingsPage.deleteAccount();
-    }
-
 
     @When("^I add a Member \"([^\"]*)\", \"([^\"]*)\" to the account and assign a Account Role \"([^\"]*)\" without permission of project creator$")
     public void iAddAMemberToTheAccountAndAssignAAccountRoleWithoutPermissionOfProjectCreator(String member, String email, String role) {
@@ -121,5 +115,16 @@ public class AccountsSteps {
         account.setProjectCreator(true);
         accountMembershipsPage = pageTransporter.navigateToAccountMembershipPage(account.getUrlAccountMember());
         accountMembershipsPage.addAccountMember(email, role, false);
+    }
+
+    @When("^I delete the member \"([^\"]*)\" from Pivotal Tracker account in the Account Memberships$")
+    public void deleteTheMemberFromPivotalTrackerAccountInTheAccountMemberships(String nameMember) {
+
+    }
+
+    @After("@deleteAccount")
+    public void deleteAccount() {
+        pageTransporter.navigateToAccountSettingsPage(account.getUrlSettings());
+        accountSettingsPage.deleteAccount();
     }
 }
