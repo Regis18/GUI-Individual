@@ -1,6 +1,8 @@
 package pivotal.ui.pages;
 
+import core.selenium.DriverMethods;
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -9,8 +11,9 @@ import pivotal.ui.BasePage;
 import org.openqa.selenium.NoSuchElementException;
 
 
-
 public class AccountMembershipsPage extends BasePage {
+    private DriverMethods driverMethods = new DriverMethods();
+
     @FindBy(id = "new_member_button")
     private WebElement newMemberBtn;
 
@@ -38,8 +41,8 @@ public class AccountMembershipsPage extends BasePage {
     @FindBy(id = "save_roles")
     private WebElement saveRoles;
 
-    @FindBy(id = "add_member_form")
-    private WebElement addMemberForm;
+    @FindBy(xpath = "//div[@class=\"actions_overlay removable\"]")
+    private WebElement actionMemberForm;
 
     @Override
     public void waitUntilPageObjectIsLoaded() {
@@ -58,9 +61,19 @@ public class AccountMembershipsPage extends BasePage {
         projectCreatorChk.click();
     }
 
-    private void selectAccountRoleCmb(String role) {
-        Select accountRole = new Select(driver.findElement(By.id("membership_account_role_none")));
+    private void selectOption(String role, By by) {
+        Select accountRole = new Select(driver.findElement(by));
         accountRole.selectByVisibleText(role);
+    }
+    private void selectAccountRoleCmb(String role) {
+        selectOption(role, By.id("membership_account_role_none"));
+    }
+    public void updateMemberRole(String member, String role) {
+        clickActions(member);
+        selectOption(role, By.xpath("//div[@id=\"change_roles_tab_content\"]//select[@data-aid=\"account_role_dropdown\"]"));
+        saveRoles.click();
+
+        driverMethods.waitForElementDisappear(By.xpath("//div[@class=\"actions_overlay removable\"]"));
     }
 
     public void addAccountMember(String name, String role, boolean isProjectCreator) {
@@ -84,32 +97,30 @@ public class AccountMembershipsPage extends BasePage {
     }
 
     public boolean isMemberInTheList(String member, String role, boolean isProjectCreator) {
-        for (WebElement element: driver.findElements(By.xpath("//li[@class=\"non_project_contributor\"]"))) {
-            String idMember = element.getAttribute("id");
-            String nameMemberPath = "//li[@id=\"membership\"]//div[@class=\"name ellipsify\"]";
-            String roleMemberPath = "//li[@id=\"membership\"]//ul[@class=\"member_type_filter\"]//li[@class]";
-            String nameMember = driver.findElement(By.xpath(nameMemberPath.replace("membership", idMember)))
-                    .getText()
-                    .toLowerCase();
-            if (member.toLowerCase().equals(nameMember)) {
-                if (role.equals("Member")) {
-                    return true;
-                }
-                String roleMember = driver.findElement(By.xpath(roleMemberPath.replace("membership", idMember)))
-                        .getText()
-                        .toLowerCase();
-                if (role.toLowerCase().equals(roleMember)) {
-                    return true;
-                } else if (role.equals("Member")) {
-                    if (isProjectCreator) {
-                        return roleMember.equals("proj creator") ? true : false;
-                    } else {
-                        return true;
-                    }
-                }
-            }
+        String locatorRow = "//li[div[contains(text(),'member')]]".replace("member", member);
+        WebElement row = driver.findElement(By.xpath(locatorRow));
+        String roleMember = "";
+        try {
+            roleMember = row.findElement(By.xpath(".//ul[@class='member_type_filter'] //li[@class]")).getText();
+        } catch (StaleElementReferenceException e) {
+            e.getMessage();
+            row = driver.findElement(By.xpath(locatorRow));
+            roleMember = row.findElement(By.xpath(".//ul[@class='member_type_filter'] //li[@class]")).getText();
         }
-        return false;
+        if (roleMember.toLowerCase().equals(role.toLowerCase())) {
+            return true;
+        } else if (role.equals("Member")) {
+            if(!isProjectCreator) {
+                return true;
+            }
+            if (isProjectCreator && roleMember.toLowerCase().equals("proj creator")) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
 
     private void clickActions(String member) {
@@ -145,7 +156,23 @@ public class AccountMembershipsPage extends BasePage {
         clickRemoveMemberBtn();
     }
 
-    public void isNotAddMemberForm() {
-        wait.until(ExpectedConditions.invisibilityOf(addMemberForm));
+    public boolean waitForAnswer(String member, String role, boolean isCreatorProject){
+        int cont = 20;
+        boolean result = false;
+        while (cont > 0) {
+            driverMethods.waitForMilliSeconds(500);
+            if (isMemberInTheList(member, role, isCreatorProject)) {
+                result = true;
+                break;
+            } else {
+                cont--;
+            }
+        }
+
+        return result;
     }
+    public boolean elementDisappear(String member) {
+        return driverMethods.waitForElementDisappear(By.xpath("//li[div[contains(text(),'member')]]".replace("member", member)));
+    }
+
 }

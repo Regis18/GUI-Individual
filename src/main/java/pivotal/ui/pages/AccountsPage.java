@@ -1,5 +1,6 @@
 package pivotal.ui.pages;
 
+import core.selenium.DriverMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,6 +9,7 @@ import pivotal.entities.MatchValue;
 import pivotal.ui.BasePage;
 
 public class AccountsPage extends BasePage {
+    DriverMethods driverMethods = new DriverMethods();
     @FindBy(xpath = "//div[@class=\"page_description\"]")
     private WebElement accountCreateForm;
 
@@ -40,5 +42,9 @@ public class AccountsPage extends BasePage {
 
     public String getMessageDelete() {
         return messageDelete.getText();
+    }
+
+    public boolean elementDisappear(String nameAccount) {
+        return driverMethods.waitForElementDisappear(By.xpath("//div[contains(text(),\"account\")]".replace("account", nameAccount)));
     }
 }

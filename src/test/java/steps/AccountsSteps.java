@@ -101,6 +101,8 @@ public class AccountsSteps {
 
     @Then("^I should see message of confirmation \"([^\"]*)\" in the Membership Page of Account$")
     public void seeMessageOfConfirmationInTheMembershipPageOfAccount(String message) {
+        System.out.println(account.getUrlAccountMember());
+        pageTransporter.navigateToAccountMembershipPage(account.getUrlAccountMember());
         assertEquals(accountMembershipsPage.messageConfirmation(), message, "The message is not the correct");
     }
 
@@ -109,7 +111,7 @@ public class AccountsSteps {
         assertTrue(accountMembershipsPage.isMemberInTheList(account.getNameMember(),
                 account.getRoleMember(),
                 true),
-                "The member added is not correct" + account.getNameMember());
+                "The member added is not correct, Member: " + account.getNameMember());
     }
 
 
@@ -127,18 +129,32 @@ public class AccountsSteps {
         accountMembershipsPage.deleteMember(nameMember);
     }
 
+    @Then("^I should not see the member of account in the table of the Membership Page of Account$")
+    public void seeNotTheMemberOfAccountInTheTableOfTheMembershipPageOfAccount() {
+        assertFalse(accountMembershipsPage.elementDisappear(account.getNameMember()),
+                "The member was not deleted " + account.getNameMember());
+    }
+
+    @When("^I update an Account Role \"([^\"]*)\" of the member$")
+    public void updateAnAccountRoleOfTheMember(String role) {
+        accountMembershipsPage.updateMemberRole(account.getNameMember(), role);
+    }
+
+    @Then("^I verify the Member Role has changed his Account Role to \"([^\"]*)\"$")
+    public void verifyTheMemberRoleHasChangedHisAccountRoleTo(String role) {
+        System.out.println("STEPS " + account.getNameMember() + " " + role);
+        assertTrue(accountMembershipsPage.waitForAnswer(account.getNameMember(), role, true),
+                "The Member Account doesn't change its role: " + role);
+    }
+
     @After("@deleteAccount")
     public void deleteAccount() {
         pageTransporter.navigateToAccountSettingsPage(account.getUrlSettings());
         accountSettingsPage.deleteAccount();
     }
 
-    @Then("^I should not see the member of account in the table of the Membership Page of Account$")
-    public void seeNotTheMemberOfAccountInTheTableOfTheMembershipPageOfAccount() {
-        accountMembershipsPage.isNotAddMemberForm();
-        assertFalse(accountMembershipsPage.isMemberInTheList(account.getNameMember(),
-                account.getRoleMember(),
-                true),
-                "The member was not deleted " + account.getNameMember());
+    @And("^I should see all of the accounts except the deleted account$")
+    public void iShouldSeeAllOfTheAccountsExceptTheDeletedAccount() {
+        assertFalse(accountsPage.elementDisappear(account.getNameAccount()));
     }
 }
