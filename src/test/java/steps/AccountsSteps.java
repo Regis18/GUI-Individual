@@ -101,8 +101,6 @@ public class AccountsSteps {
 
     @Then("^I should see message of confirmation \"([^\"]*)\" in the Membership Page of Account$")
     public void seeMessageOfConfirmationInTheMembershipPageOfAccount(String message) {
-        System.out.println(account.getUrlAccountMember());
-        pageTransporter.navigateToAccountMembershipPage(account.getUrlAccountMember());
         assertEquals(accountMembershipsPage.messageConfirmation(), message, "The message is not the correct");
     }
 
@@ -147,14 +145,14 @@ public class AccountsSteps {
                 "The Member Account doesn't change its role: " + role);
     }
 
+    @And("^I should see all of the accounts except the deleted account$")
+    public void iShouldSeeAllOfTheAccountsExceptTheDeletedAccount() {
+        assertFalse(accountsPage.elementDisappear(account.getNameAccount()));
+    }
+
     @After("@deleteAccount")
     public void deleteAccount() {
         pageTransporter.navigateToAccountSettingsPage(account.getUrlSettings());
         accountSettingsPage.deleteAccount();
-    }
-
-    @And("^I should see all of the accounts except the deleted account$")
-    public void iShouldSeeAllOfTheAccountsExceptTheDeletedAccount() {
-        assertFalse(accountsPage.elementDisappear(account.getNameAccount()));
     }
 }
