@@ -6,6 +6,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import pivotal.ui.BasePage;
+import org.openqa.selenium.NoSuchElementException;
+
+
 
 public class AccountMembershipsPage extends BasePage {
     @FindBy(id = "new_member_button")
@@ -25,6 +28,18 @@ public class AccountMembershipsPage extends BasePage {
 
     @FindBy(id = "add_member_button")
     private WebElement addMemberBtn;
+
+    @FindBy(id = "remove_member_button")
+    private WebElement removeMemberBtn;
+
+    @FindBy(id = "remove_member_tab")
+    private WebElement removeMemberTab;
+
+    @FindBy(id = "save_roles")
+    private WebElement saveRoles;
+
+    @FindBy(id = "add_member_form")
+    private WebElement addMemberForm;
 
     @Override
     public void waitUntilPageObjectIsLoaded() {
@@ -51,6 +66,12 @@ public class AccountMembershipsPage extends BasePage {
     public void addAccountMember(String name, String role, boolean isProjectCreator) {
         clickNewMemberBtn();
         memberForLookupTxt.sendKeys(name);
+        String element = "//a[contains(text(),'<name>')]";
+        try {
+            driver.findElement(By.xpath(element.replace("name", name))).click();
+        } catch (NoSuchElementException e) {
+            e.getMessage();
+        }
         selectAccountRoleCmb(role);
         if (isProjectCreator) {
             checkProjectCreatorChk();
@@ -58,8 +79,8 @@ public class AccountMembershipsPage extends BasePage {
         clickAddMemberBtn();
     }
 
-    public boolean isMessageConfirmation(String message) {
-        return message.equals(messageConfirmation.getText());
+    public String messageConfirmation() {
+        return messageConfirmation.getText();
     }
 
     public boolean isMemberInTheList(String member, String role, boolean isProjectCreator) {
@@ -91,7 +112,40 @@ public class AccountMembershipsPage extends BasePage {
         return false;
     }
 
-    //li[@id="membership_row_3167444"]//ul[@class="member_type_filter"]//li[@class]
-    //li[@id="membership_row_3167444"]//div[@class="name ellipsify"]
-    //TODO account membership with the validations of it and account creation.
+    private void clickActions(String member) {
+        wait.until(ExpectedConditions.visibilityOf(messageConfirmation));
+        String actionPath = "//li[@id=\"membership\"]//a";
+        for (WebElement element : driver.findElements(By.xpath("//li[@class=\"non_project_contributor\"]"))) {
+            String idMember = element.getAttribute("id");
+            String nameMemberPath = "//li[@id=\"membership\"]//div[@class=\"name ellipsify\"]";
+            String nameMember = driver.findElement(By.xpath(nameMemberPath.replace("membership", idMember)))
+                    .getText()
+                    .toLowerCase();
+            if (member.toLowerCase().equals(nameMember)) {
+                actionPath = actionPath.replace("membership", idMember);
+                break;
+            }
+        }
+        driver.findElement(By.xpath(actionPath)).click();
+    }
+
+
+    private void clickRemoveMemberTab() {
+        removeMemberTab.click();
+    }
+
+    private void clickRemoveMemberBtn() {
+        removeMemberBtn.click();
+    }
+
+    public void deleteMember(String member) {
+        clickActions(member);
+        wait.until(ExpectedConditions.visibilityOf(saveRoles));
+        clickRemoveMemberTab();
+        clickRemoveMemberBtn();
+    }
+
+    public void isNotAddMemberForm() {
+        wait.until(ExpectedConditions.invisibilityOf(addMemberForm));
+    }
 }

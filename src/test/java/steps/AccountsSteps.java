@@ -1,16 +1,21 @@
 package steps;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.After;
-import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import pivotal.entities.Accounts;
 import pivotal.ui.components.AccountBar;
-import pivotal.ui.pages.*;
+import pivotal.ui.pages.AccountMembershipsPage;
+import pivotal.ui.pages.AccountSettingsPage;
+import pivotal.ui.pages.AccountsPage;
+import pivotal.ui.pages.CreateAccountPopup;
+import pivotal.ui.pages.CreateProjectPopup;
+import pivotal.ui.pages.DashboardPage;
+import pivotal.ui.pages.PageTransporter;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 
@@ -78,14 +83,14 @@ public class AccountsSteps {
     }
 
 
-    @Then("^I should see a yellow message \"([^\"]*)\" in the Accounts Page$")
+    @Then("^I should see a yellow message \"([^\"]*)\" in Accounts Page$")
     public void seeAYellowMessage(String message) {
         assertEquals(message, accountsPage.getMessageDelete());
     }
 
 
     @When("^I add a Member \"([^\"]*)\", \"([^\"]*)\" to the account and assign a Account Role \"([^\"]*)\" with permission of project creator$")
-    public void addAMemberToTheAccountAndAssignAAccountRoleWithPermissionOfProjectCreator(String member, String email, String role) {
+    public void addAMemberToTheAccountWithPermissionOfProjectCreator(String member, String email, String role) {
         account.setNameMember(member);
         account.setRoleMember(role);
         account.setProjectCreator(true);
@@ -96,11 +101,11 @@ public class AccountsSteps {
 
     @Then("^I should see message of confirmation \"([^\"]*)\" in the Membership Page of Account$")
     public void seeMessageOfConfirmationInTheMembershipPageOfAccount(String message) {
-        assertTrue(accountMembershipsPage.isMessageConfirmation(message), "The message is not the correct");
+        assertEquals(accountMembershipsPage.messageConfirmation(), message, "The message is not the correct");
     }
 
     @And("^I should see the member that was added in the table of the Membership Page of Account$")
-    public void seeTheMemberThatWasAddedInTheTableOfTheMembershipPageOfAccount() {
+    public void seeTheMemberInTheTableOfTheMembershipPageOfAccount() {
         assertTrue(accountMembershipsPage.isMemberInTheList(account.getNameMember(),
                 account.getRoleMember(),
                 true),
@@ -109,7 +114,7 @@ public class AccountsSteps {
 
 
     @When("^I add a Member \"([^\"]*)\", \"([^\"]*)\" to the account and assign a Account Role \"([^\"]*)\" without permission of project creator$")
-    public void iAddAMemberToTheAccountAndAssignAAccountRoleWithoutPermissionOfProjectCreator(String member, String email, String role) {
+    public void addAMemberToTheAccount(String member, String email, String role) {
         account.setNameMember(member);
         account.setRoleMember(role);
         account.setProjectCreator(true);
@@ -119,12 +124,21 @@ public class AccountsSteps {
 
     @When("^I delete the member \"([^\"]*)\" from Pivotal Tracker account in the Account Memberships$")
     public void deleteTheMemberFromPivotalTrackerAccountInTheAccountMemberships(String nameMember) {
-
+        accountMembershipsPage.deleteMember(nameMember);
     }
 
     @After("@deleteAccount")
     public void deleteAccount() {
         pageTransporter.navigateToAccountSettingsPage(account.getUrlSettings());
         accountSettingsPage.deleteAccount();
+    }
+
+    @Then("^I should not see the member of account in the table of the Membership Page of Account$")
+    public void seeNotTheMemberOfAccountInTheTableOfTheMembershipPageOfAccount() {
+        accountMembershipsPage.isNotAddMemberForm();
+        assertFalse(accountMembershipsPage.isMemberInTheList(account.getNameMember(),
+                account.getRoleMember(),
+                true),
+                "The member was not deleted " + account.getNameMember());
     }
 }
