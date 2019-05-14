@@ -108,7 +108,7 @@ public class AccountsSteps {
     public void seeTheMemberInTheTableOfTheMembershipPageOfAccount() {
         assertTrue(accountMembershipsPage.isMemberInTheList(account.getNameMember(),
                 account.getRoleMember(),
-                true),
+                false),
                 "The member added is not correct, Member: " + account.getNameMember());
     }
 
@@ -140,13 +140,12 @@ public class AccountsSteps {
 
     @Then("^I verify the Member Role has changed his Account Role to \"([^\"]*)\"$")
     public void verifyTheMemberRoleHasChangedHisAccountRoleTo(String role) {
-        System.out.println("STEPS " + account.getNameMember() + " " + role);
         assertTrue(accountMembershipsPage.waitForAnswer(account.getNameMember(), role, true),
                 "The Member Account doesn't change its role: " + role);
     }
 
     @And("^I should see all of the accounts except the deleted account$")
-    public void iShouldSeeAllOfTheAccountsExceptTheDeletedAccount() {
+    public void seeAllOfTheAccountsExceptTheDeletedAccount() {
         assertFalse(accountsPage.elementDisappear(account.getNameAccount()));
     }
 

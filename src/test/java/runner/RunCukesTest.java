@@ -5,6 +5,8 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 import org.testng.annotations.AfterTest;
 
+import static runner.GenerateReport.generateReport;
+
 
 @CucumberOptions(
         //plugin = {"pretty", "html:target/cucumber", "json:target/cucumber.json"},
@@ -18,5 +20,6 @@ public class RunCukesTest extends AbstractTestNGCucumberTests {
     @AfterTest
     public void afterExecution() {
         WebDriverManager.getInstance().getWebDriver().close();
+        generateReport();
     }
 }

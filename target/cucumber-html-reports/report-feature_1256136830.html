@@ -1,0 +1,3744 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.tablesorter.min.js"></script>
+<script type="text/javascript" src="js/Chart.min.js"></script>
+<script type="text/javascript" src="js/moment.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
+<link rel="stylesheet" href="css/cucumber.css" type="text/css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="shortcut icon" href="images/favicon.png"/>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    // this will tell tablesorter to try looking for the data-value attribute
+    // if present, it'll sort by that instead
+    // otherwise, it'll sort by the text content of the table cell
+    $("#tablesorter").tablesorter({
+        textAttribute: 'data-value',
+        // ignores the first row of the header, the 'scenario', 'steps', since
+        // sorting those doesn't make sense
+        selectorHeaders: '> thead tr:not(.dont-sort) th',
+        // use a stable sort
+        sortStable: true
+    });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+  
+<title>Cucumber Reports (no 1) - Feature: Create, Update and Delete of Account</title>
+
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navigation">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse">
+      <p class="navbar-text navbar-left">Cucumber Report</p>
+      <ul class="nav navbar-nav navbar-right">
+                <li role="presentation" ><a href="overview-features.html">Features</a></li>
+        <li role="presentation" ><a href="overview-tags.html">Tags</a></li>
+        <li role="presentation" ><a href="overview-steps.html">Steps</a></li>
+                <li role="presentation" ><a href="overview-failures.html">Failures</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container-fluid">
+  <div class="col-md-5 col-md-offset-1">
+    
+<table class="table table-bordered" id="build-info">
+  <thead>
+    <tr>
+      <th>Project</th>
+              <th>Number</th>
+            <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="info">
+      <td>Pivotal Tracker Account</td>
+              <td>1</td>
+            <td>14 may. 2019, 07:17</td>
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+  <div class="col-md-3 col-md-offset-2">
+      </div>
+</div>
+
+
+<div id="report-lead" class="container-fluid">
+  <div class="col-md-10 col-md-offset-1">
+    <h2>Feature Report</h2>
+      </div>
+</div>
+
+
+<div class="container-fluid" id="report">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <table class="stats-table">
+
+        
+<thead>
+  <tr class="header dont-sort">
+        <th></th>
+    <th colspan="6">Steps</th>
+    <th colspan="3">Scenarios</th>
+    <th colspan="2">Features</th>
+  </tr>
+  <tr>
+    <th>Feature</th>
+        <th class="passed">Passed</th>
+    <th class="failed">Failed</th>
+    <th class="skipped">Skipped</th>
+    <th class="pending">Pending</th>
+    <th class="undefined">Undefined</th>
+    <th class="total">Total</th>
+
+    <th class="passed">Passed</th>
+    <th class="failed">Failed</th>
+    <th class="total">Total</th>
+
+    <th>Duration</th>
+    <th>Status</th>
+  </tr>
+</thead>
+
+
+        <tbody>
+        <tr>
+          <td class="tagname">Create, Update and Delete of Account</td>
+          <td      class="passed"    >70</td>
+          <td >0</td>
+          <td >0</td>
+          <td >0</td>
+          <td >0</td>
+          <td class="total">70</td>
+
+          <td  class="passed"    >13</td>
+          <td >0</td>
+          <td class="total">13</td>
+
+          <td class="duration" data-value="192893219698">3:12.893</td>
+          <td class="passed">Passed</td>
+        </tr>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-1 col-md-offset-10">
+      <i class="fa fa-chevron-circle-down fa-2x collapsable-control"
+        onClick="javascript:$('#report .collapsable-details').collapse('show')"></i>
+      <i class="fa fa-chevron-circle-up fa-2x collapsable-control"
+        onClick="javascript:$('#report .collapsable-details').collapse('hide')"></i>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid" id="report">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="feature">
+        
+<div class="tags indention">
+  </div>
+
+        
+<div class="brief passed">
+  <span class="keyword indention">Feature</span>
+  <span class="name">Create, Update and Delete of Account</span>
+  
+
+  </div>
+
+        <div class="description indention"></div>
+
+        <div class="elements inner-level">
+                      
+<div class="element">
+  
+  
+<div class="tags indention">
+  </div>
+
+  
+  <span class="lead-duration duration">18.805</span>
+
+
+    <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-1">
+    
+<div class="brief passed">
+  <span class="keyword indention">Background</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </span>
+  <div class="description indention"></div>
+
+  <div id="element-1" class="collapse collapsable-details ">
+    
+
+
+    
+<div class="steps inner-level">
+    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-2">
+    
+<div class="brief passed">
+  <span class="keyword indention">Steps</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </div>
+
+  <div id="steps-2" class="inner-level collapse collapsable-details ">
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Given</span>
+  <span class="name">I am logged in with Username and Password into the Pivotal Tracker</span>
+  
+  <span class="lead-duration duration">18.805</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+      </div>
+</div>
+
+
+    
+
+  </div>
+</div>
+
+                      
+<div class="element">
+  
+  
+<div class="tags indention">
+      <b>Tags:</b>
+           <a href="report-tag_2769378753.html">@deleteAccount</a>
+      </div>
+
+  
+  <span class="lead-duration duration">6.183</span>
+
+
+    <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-3">
+    
+<div class="brief passed">
+  <span class="keyword indention">Scenario</span>
+  <span class="name">Create a new account in Pivotal Tracker</span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </span>
+  <div class="description indention"></div>
+
+  <div id="element-3" class="collapse collapsable-details ">
+    
+
+
+    
+<div class="steps inner-level">
+    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-4">
+    
+<div class="brief passed">
+  <span class="keyword indention">Steps</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </div>
+
+  <div id="steps-4" class="inner-level collapse collapsable-details ">
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">When</span>
+  <span class="name">I create a new account &quot;<span class="argument">New Account</span>&quot; in Pivotal Tracker</span>
+  
+  <span class="lead-duration duration">3.440</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Then</span>
+  <span class="name">I should see the new account page</span>
+  
+  <span class="lead-duration duration">0.037</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">When</span>
+  <span class="name">I navigate to Account page</span>
+  
+  <span class="lead-duration duration">1.224</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Then</span>
+  <span class="name">I should see the new account in the Accounts page</span>
+  
+  <span class="lead-duration duration">0.149</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">When</span>
+  <span class="name">I navigate to Dashboard page</span>
+  
+  <span class="lead-duration duration">0.658</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Then</span>
+  <span class="name">I should see the new account in the Project Creation popup</span>
+  
+  <span class="lead-duration duration">0.672</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+      </div>
+</div>
+
+
+    
+  <div class="inner-level hooks-element-after">
+        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-5">
+      
+<div class="brief passed">
+  <span class="keyword indention">Hooks</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+    </div>
+
+    <div id="after-5" class="inner-level collapse collapsable-details ">
+              <div class="hook">
+          <div class="brief passed">
+            <span class="keyword indention">After</span>
+                          <span class="location name">AccountsSteps.deleteAccount()</span>
+                        
+  <span class="lead-duration duration">2.908</span>
+
+          </div>
+
+                      
+
+          
+                    
+
+          
+  
+        </div>
+          </div>
+  </div>
+
+  </div>
+</div>
+
+                      
+<div class="element">
+  
+  
+<div class="tags indention">
+  </div>
+
+  
+  <span class="lead-duration duration">0.006</span>
+
+
+    <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-6">
+    
+<div class="brief passed">
+  <span class="keyword indention">Background</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </span>
+  <div class="description indention"></div>
+
+  <div id="element-6" class="collapse collapsable-details ">
+    
+
+
+    
+<div class="steps inner-level">
+    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-7">
+    
+<div class="brief passed">
+  <span class="keyword indention">Steps</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </div>
+
+  <div id="steps-7" class="inner-level collapse collapsable-details ">
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Given</span>
+  <span class="name">I am logged in with Username and Password into the Pivotal Tracker</span>
+  
+  <span class="lead-duration duration">0.006</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+      </div>
+</div>
+
+
+    
+
+  </div>
+</div>
+
+                      
+<div class="element">
+  
+  
+<div class="tags indention">
+      <b>Tags:</b>
+           <a href="report-tag_2769378753.html">@deleteAccount</a>
+      </div>
+
+  
+  <span class="lead-duration duration">8.183</span>
+
+
+    <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-8">
+    
+<div class="brief passed">
+  <span class="keyword indention">Scenario</span>
+  <span class="name">Configure the account name of an account created</span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </span>
+  <div class="description indention"></div>
+
+  <div id="element-8" class="collapse collapsable-details ">
+    
+
+
+    
+<div class="steps inner-level">
+    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-9">
+    
+<div class="brief passed">
+  <span class="keyword indention">Steps</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </div>
+
+  <div id="steps-9" class="inner-level collapse collapsable-details ">
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Given</span>
+  <span class="name">I create a new account &quot;<span class="argument">New Account</span>&quot; in Pivotal Tracker</span>
+  
+  <span class="lead-duration duration">4.003</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">When</span>
+  <span class="name">I configure the account Name &quot;<span class="argument">Change Name</span>&quot; and save the changes</span>
+  
+  <span class="lead-duration duration">2.407</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Then</span>
+  <span class="name">I should see the new account page</span>
+  
+  <span class="lead-duration duration">0.033</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">When</span>
+  <span class="name">I navigate to Account page</span>
+  
+  <span class="lead-duration duration">1.610</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Then</span>
+  <span class="name">I should see the new account in the Accounts page</span>
+  
+  <span class="lead-duration duration">0.127</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+      </div>
+</div>
+
+
+    
+  <div class="inner-level hooks-element-after">
+        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-10">
+      
+<div class="brief passed">
+  <span class="keyword indention">Hooks</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+    </div>
+
+    <div id="after-10" class="inner-level collapse collapsable-details ">
+              <div class="hook">
+          <div class="brief passed">
+            <span class="keyword indention">After</span>
+                          <span class="location name">AccountsSteps.deleteAccount()</span>
+                        
+  <span class="lead-duration duration">3.781</span>
+
+          </div>
+
+                      
+
+          
+                    
+
+          
+  
+        </div>
+          </div>
+  </div>
+
+  </div>
+</div>
+
+                      
+<div class="element">
+  
+  
+<div class="tags indention">
+  </div>
+
+  
+  <span class="lead-duration duration">0.005</span>
+
+
+    <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-11">
+    
+<div class="brief passed">
+  <span class="keyword indention">Background</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </span>
+  <div class="description indention"></div>
+
+  <div id="element-11" class="collapse collapsable-details ">
+    
+
+
+    
+<div class="steps inner-level">
+    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-12">
+    
+<div class="brief passed">
+  <span class="keyword indention">Steps</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </div>
+
+  <div id="steps-12" class="inner-level collapse collapsable-details ">
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Given</span>
+  <span class="name">I am logged in with Username and Password into the Pivotal Tracker</span>
+  
+  <span class="lead-duration duration">0.005</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+      </div>
+</div>
+
+
+    
+
+  </div>
+</div>
+
+                      
+<div class="element">
+  
+  
+<div class="tags indention">
+  </div>
+
+  
+  <span class="lead-duration duration">7.029</span>
+
+
+    <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-13">
+    
+<div class="brief passed">
+  <span class="keyword indention">Scenario</span>
+  <span class="name">Delete a account in Pivotal Tracker</span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </span>
+  <div class="description indention"></div>
+
+  <div id="element-13" class="collapse collapsable-details ">
+    
+
+
+    
+<div class="steps inner-level">
+    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-14">
+    
+<div class="brief passed">
+  <span class="keyword indention">Steps</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </div>
+
+  <div id="steps-14" class="inner-level collapse collapsable-details ">
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">I create a new account &quot;<span class="argument">New Account</span>&quot; in Pivotal Tracker</span>
+  
+  <span class="lead-duration duration">3.477</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">When</span>
+  <span class="name">I enter to the Settings and delete the account with name &quot;<span class="argument">New Account</span>&quot;</span>
+  
+  <span class="lead-duration duration">3.443</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Then</span>
+  <span class="name">I should see a yellow message &quot;<span class="argument">New Account was successfully deleted.</span>&quot; in Accounts Page</span>
+  
+  <span class="lead-duration duration">0.028</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">I should see all of the accounts except the deleted account</span>
+  
+  <span class="lead-duration duration">0.079</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+      </div>
+</div>
+
+
+    
+
+  </div>
+</div>
+
+                      
+<div class="element">
+  
+  
+<div class="tags indention">
+  </div>
+
+  
+  <span class="lead-duration duration">0.020</span>
+
+
+    <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-15">
+    
+<div class="brief passed">
+  <span class="keyword indention">Background</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </span>
+  <div class="description indention"></div>
+
+  <div id="element-15" class="collapse collapsable-details ">
+    
+
+
+    
+<div class="steps inner-level">
+    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-16">
+    
+<div class="brief passed">
+  <span class="keyword indention">Steps</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </div>
+
+  <div id="steps-16" class="inner-level collapse collapsable-details ">
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Given</span>
+  <span class="name">I am logged in with Username and Password into the Pivotal Tracker</span>
+  
+  <span class="lead-duration duration">0.020</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+      </div>
+</div>
+
+
+    
+
+  </div>
+</div>
+
+                      
+<div class="element">
+  
+  
+<div class="tags indention">
+      <b>Tags:</b>
+           <a href="report-tag_2769378753.html">@deleteAccount</a>
+      </div>
+
+  
+  <span class="lead-duration duration">6.553</span>
+
+
+    <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-17">
+    
+<div class="brief passed">
+  <span class="keyword indention">Scenario Outline</span>
+  <span class="name">Add member to the account of Pivotal Tracker</span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </span>
+  <div class="description indention"></div>
+
+  <div id="element-17" class="collapse collapsable-details ">
+    
+
+
+    
+<div class="steps inner-level">
+    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-18">
+    
+<div class="brief passed">
+  <span class="keyword indention">Steps</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </div>
+
+  <div id="steps-18" class="inner-level collapse collapsable-details ">
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Given</span>
+  <span class="name">I create a new account &quot;<span class="argument">New Account</span>&quot; in Pivotal Tracker</span>
+  
+  <span class="lead-duration duration">4.743</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">When</span>
+  <span class="name">I add a Member &quot;<span class="argument">gluisalberto68</span>&quot;, &quot;<span class="argument">g.luisalberto68@gmail.com</span>&quot; to the account and assign a Account Role &quot;<span class="argument">Member</span>&quot; with permission of project creator</span>
+  
+  <span class="lead-duration duration">1.290</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Then</span>
+  <span class="name">I should see message of confirmation &quot;<span class="argument">Updated member 'gluisalberto68'</span>&quot; in the Membership Page of Account</span>
+  
+  <span class="lead-duration duration">0.475</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">I should see the member that was added in the table of the Membership Page of Account</span>
+  
+  <span class="lead-duration duration">0.043</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+      </div>
+</div>
+
+
+    
+  <div class="inner-level hooks-element-after">
+        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-19">
+      
+<div class="brief passed">
+  <span class="keyword indention">Hooks</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+    </div>
+
+    <div id="after-19" class="inner-level collapse collapsable-details ">
+              <div class="hook">
+          <div class="brief passed">
+            <span class="keyword indention">After</span>
+                          <span class="location name">AccountsSteps.deleteAccount()</span>
+                        
+  <span class="lead-duration duration">2.809</span>
+
+          </div>
+
+                      
+
+          
+                    
+
+          
+  
+        </div>
+          </div>
+  </div>
+
+  </div>
+</div>
+
+                      
+<div class="element">
+  
+  
+<div class="tags indention">
+  </div>
+
+  
+  <span class="lead-duration duration">0.004</span>
+
+
+    <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-20">
+    
+<div class="brief passed">
+  <span class="keyword indention">Background</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </span>
+  <div class="description indention"></div>
+
+  <div id="element-20" class="collapse collapsable-details ">
+    
+
+
+    
+<div class="steps inner-level">
+    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-21">
+    
+<div class="brief passed">
+  <span class="keyword indention">Steps</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </div>
+
+  <div id="steps-21" class="inner-level collapse collapsable-details ">
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Given</span>
+  <span class="name">I am logged in with Username and Password into the Pivotal Tracker</span>
+  
+  <span class="lead-duration duration">0.004</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+      </div>
+</div>
+
+
+    
+
+  </div>
+</div>
+
+                      
+<div class="element">
+  
+  
+<div class="tags indention">
+      <b>Tags:</b>
+           <a href="report-tag_2769378753.html">@deleteAccount</a>
+      </div>
+
+  
+  <span class="lead-duration duration">5.924</span>
+
+
+    <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-22">
+    
+<div class="brief passed">
+  <span class="keyword indention">Scenario Outline</span>
+  <span class="name">Add member to the account of Pivotal Tracker</span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </span>
+  <div class="description indention"></div>
+
+  <div id="element-22" class="collapse collapsable-details ">
+    
+
+
+    
+<div class="steps inner-level">
+    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-23">
+    
+<div class="brief passed">
+  <span class="keyword indention">Steps</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </div>
+
+  <div id="steps-23" class="inner-level collapse collapsable-details ">
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Given</span>
+  <span class="name">I create a new account &quot;<span class="argument">New Account</span>&quot; in Pivotal Tracker</span>
+  
+  <span class="lead-duration duration">3.204</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">When</span>
+  <span class="name">I add a Member &quot;<span class="argument">cxristianlujan05</span>&quot;, &quot;<span class="argument">cxristian.lujan05@gmail.com</span>&quot; to the account and assign a Account Role &quot;<span class="argument">Admin</span>&quot; with permission of project creator</span>
+  
+  <span class="lead-duration duration">1.539</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Then</span>
+  <span class="name">I should see message of confirmation &quot;<span class="argument">Updated member 'cxristianlujan05'</span>&quot; in the Membership Page of Account</span>
+  
+  <span class="lead-duration duration">1.139</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">I should see the member that was added in the table of the Membership Page of Account</span>
+  
+  <span class="lead-duration duration">0.041</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+      </div>
+</div>
+
+
+    
+  <div class="inner-level hooks-element-after">
+        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-24">
+      
+<div class="brief passed">
+  <span class="keyword indention">Hooks</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+    </div>
+
+    <div id="after-24" class="inner-level collapse collapsable-details ">
+              <div class="hook">
+          <div class="brief passed">
+            <span class="keyword indention">After</span>
+                          <span class="location name">AccountsSteps.deleteAccount()</span>
+                        
+  <span class="lead-duration duration">2.891</span>
+
+          </div>
+
+                      
+
+          
+                    
+
+          
+  
+        </div>
+          </div>
+  </div>
+
+  </div>
+</div>
+
+                      
+<div class="element">
+  
+  
+<div class="tags indention">
+  </div>
+
+  
+  <span class="lead-duration duration">0.004</span>
+
+
+    <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-25">
+    
+<div class="brief passed">
+  <span class="keyword indention">Background</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </span>
+  <div class="description indention"></div>
+
+  <div id="element-25" class="collapse collapsable-details ">
+    
+
+
+    
+<div class="steps inner-level">
+    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-26">
+    
+<div class="brief passed">
+  <span class="keyword indention">Steps</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </div>
+
+  <div id="steps-26" class="inner-level collapse collapsable-details ">
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Given</span>
+  <span class="name">I am logged in with Username and Password into the Pivotal Tracker</span>
+  
+  <span class="lead-duration duration">0.004</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+      </div>
+</div>
+
+
+    
+
+  </div>
+</div>
+
+                      
+<div class="element">
+  
+  
+<div class="tags indention">
+      <b>Tags:</b>
+           <a href="report-tag_2769378753.html">@deleteAccount</a>
+      </div>
+
+  
+  <span class="lead-duration duration">35.656</span>
+
+
+    <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-27">
+    
+<div class="brief passed">
+  <span class="keyword indention">Scenario Outline</span>
+  <span class="name">Add member to the account of Pivotal Tracker</span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </span>
+  <div class="description indention"></div>
+
+  <div id="element-27" class="collapse collapsable-details ">
+    
+
+
+    
+<div class="steps inner-level">
+    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-28">
+    
+<div class="brief passed">
+  <span class="keyword indention">Steps</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </div>
+
+  <div id="steps-28" class="inner-level collapse collapsable-details ">
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Given</span>
+  <span class="name">I create a new account &quot;<span class="argument">New Account</span>&quot; in Pivotal Tracker</span>
+  
+  <span class="lead-duration duration">3.353</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">When</span>
+  <span class="name">I add a Member &quot;<span class="argument">apitestingautomation</span>&quot;, &quot;<span class="argument">api.testing.automation@gmail.com</span>&quot; to the account and assign a Account Role &quot;<span class="argument">Owner</span>&quot; with permission of project creator</span>
+  
+  <span class="lead-duration duration">31.274</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Then</span>
+  <span class="name">I should see message of confirmation &quot;<span class="argument">Updated member 'apitestingautomation'</span>&quot; in the Membership Page of Account</span>
+  
+  <span class="lead-duration duration">0.983</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">I should see the member that was added in the table of the Membership Page of Account</span>
+  
+  <span class="lead-duration duration">0.045</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+      </div>
+</div>
+
+
+    
+  <div class="inner-level hooks-element-after">
+        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-29">
+      
+<div class="brief passed">
+  <span class="keyword indention">Hooks</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+    </div>
+
+    <div id="after-29" class="inner-level collapse collapsable-details ">
+              <div class="hook">
+          <div class="brief passed">
+            <span class="keyword indention">After</span>
+                          <span class="location name">AccountsSteps.deleteAccount()</span>
+                        
+  <span class="lead-duration duration">3.336</span>
+
+          </div>
+
+                      
+
+          
+                    
+
+          
+  
+        </div>
+          </div>
+  </div>
+
+  </div>
+</div>
+
+                      
+<div class="element">
+  
+  
+<div class="tags indention">
+  </div>
+
+  
+  <span class="lead-duration duration">0.005</span>
+
+
+    <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-30">
+    
+<div class="brief passed">
+  <span class="keyword indention">Background</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </span>
+  <div class="description indention"></div>
+
+  <div id="element-30" class="collapse collapsable-details ">
+    
+
+
+    
+<div class="steps inner-level">
+    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-31">
+    
+<div class="brief passed">
+  <span class="keyword indention">Steps</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </div>
+
+  <div id="steps-31" class="inner-level collapse collapsable-details ">
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Given</span>
+  <span class="name">I am logged in with Username and Password into the Pivotal Tracker</span>
+  
+  <span class="lead-duration duration">0.005</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+      </div>
+</div>
+
+
+    
+
+  </div>
+</div>
+
+                      
+<div class="element">
+  
+  
+<div class="tags indention">
+      <b>Tags:</b>
+           <a href="report-tag_2769378753.html">@deleteAccount</a>
+      </div>
+
+  
+  <span class="lead-duration duration">35.580</span>
+
+
+    <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-32">
+    
+<div class="brief passed">
+  <span class="keyword indention">Scenario Outline</span>
+  <span class="name">Add member to the account of Pivotal Tracker</span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </span>
+  <div class="description indention"></div>
+
+  <div id="element-32" class="collapse collapsable-details ">
+    
+
+
+    
+<div class="steps inner-level">
+    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-33">
+    
+<div class="brief passed">
+  <span class="keyword indention">Steps</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </div>
+
+  <div id="steps-33" class="inner-level collapse collapsable-details ">
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Given</span>
+  <span class="name">I create a new account &quot;<span class="argument">New Account</span>&quot; in Pivotal Tracker</span>
+  
+  <span class="lead-duration duration">3.144</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">When</span>
+  <span class="name">I add a Member &quot;<span class="argument">gluisalberto68</span>&quot;, &quot;<span class="argument">g.luisalberto68@gmail.com</span>&quot; to the account and assign a Account Role &quot;<span class="argument">Member</span>&quot; without permission of project creator</span>
+  
+  <span class="lead-duration duration">1.154</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Then</span>
+  <span class="name">I should see message of confirmation &quot;<span class="argument">Updated member 'gluisalberto68'</span>&quot; in the Membership Page of Account</span>
+  
+  <span class="lead-duration duration">1.246</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">I should see the member that was added in the table of the Membership Page of Account</span>
+  
+  <span class="lead-duration duration">30.035</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+      </div>
+</div>
+
+
+    
+  <div class="inner-level hooks-element-after">
+        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-34">
+      
+<div class="brief passed">
+  <span class="keyword indention">Hooks</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+    </div>
+
+    <div id="after-34" class="inner-level collapse collapsable-details ">
+              <div class="hook">
+          <div class="brief passed">
+            <span class="keyword indention">After</span>
+                          <span class="location name">AccountsSteps.deleteAccount()</span>
+                        
+  <span class="lead-duration duration">8.817</span>
+
+          </div>
+
+                      
+
+          
+                    
+
+          
+  
+        </div>
+          </div>
+  </div>
+
+  </div>
+</div>
+
+                      
+<div class="element">
+  
+  
+<div class="tags indention">
+  </div>
+
+  
+  <span class="lead-duration duration">0.005</span>
+
+
+    <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-35">
+    
+<div class="brief passed">
+  <span class="keyword indention">Background</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </span>
+  <div class="description indention"></div>
+
+  <div id="element-35" class="collapse collapsable-details ">
+    
+
+
+    
+<div class="steps inner-level">
+    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-36">
+    
+<div class="brief passed">
+  <span class="keyword indention">Steps</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </div>
+
+  <div id="steps-36" class="inner-level collapse collapsable-details ">
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Given</span>
+  <span class="name">I am logged in with Username and Password into the Pivotal Tracker</span>
+  
+  <span class="lead-duration duration">0.005</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+      </div>
+</div>
+
+
+    
+
+  </div>
+</div>
+
+                      
+<div class="element">
+  
+  
+<div class="tags indention">
+      <b>Tags:</b>
+           <a href="report-tag_2769378753.html">@deleteAccount</a>
+      </div>
+
+  
+  <span class="lead-duration duration">5.040</span>
+
+
+    <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-37">
+    
+<div class="brief passed">
+  <span class="keyword indention">Scenario Outline</span>
+  <span class="name">Add member to the account of Pivotal Tracker</span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </span>
+  <div class="description indention"></div>
+
+  <div id="element-37" class="collapse collapsable-details ">
+    
+
+
+    
+<div class="steps inner-level">
+    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-38">
+    
+<div class="brief passed">
+  <span class="keyword indention">Steps</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </div>
+
+  <div id="steps-38" class="inner-level collapse collapsable-details ">
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Given</span>
+  <span class="name">I create a new account &quot;<span class="argument">New Account</span>&quot; in Pivotal Tracker</span>
+  
+  <span class="lead-duration duration">3.294</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">When</span>
+  <span class="name">I add a Member &quot;<span class="argument">cxristianlujan05</span>&quot;, &quot;<span class="argument">cxristian.lujan05@gmail.com</span>&quot; to the account and assign a Account Role &quot;<span class="argument">Admin</span>&quot; without permission of project creator</span>
+  
+  <span class="lead-duration duration">1.191</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Then</span>
+  <span class="name">I should see message of confirmation &quot;<span class="argument">Updated member 'cxristianlujan05'</span>&quot; in the Membership Page of Account</span>
+  
+  <span class="lead-duration duration">0.508</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">I should see the member that was added in the table of the Membership Page of Account</span>
+  
+  <span class="lead-duration duration">0.045</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+      </div>
+</div>
+
+
+    
+  <div class="inner-level hooks-element-after">
+        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-39">
+      
+<div class="brief passed">
+  <span class="keyword indention">Hooks</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+    </div>
+
+    <div id="after-39" class="inner-level collapse collapsable-details ">
+              <div class="hook">
+          <div class="brief passed">
+            <span class="keyword indention">After</span>
+                          <span class="location name">AccountsSteps.deleteAccount()</span>
+                        
+  <span class="lead-duration duration">2.822</span>
+
+          </div>
+
+                      
+
+          
+                    
+
+          
+  
+        </div>
+          </div>
+  </div>
+
+  </div>
+</div>
+
+                      
+<div class="element">
+  
+  
+<div class="tags indention">
+  </div>
+
+  
+  <span class="lead-duration duration">0.004</span>
+
+
+    <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-40">
+    
+<div class="brief passed">
+  <span class="keyword indention">Background</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </span>
+  <div class="description indention"></div>
+
+  <div id="element-40" class="collapse collapsable-details ">
+    
+
+
+    
+<div class="steps inner-level">
+    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-41">
+    
+<div class="brief passed">
+  <span class="keyword indention">Steps</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </div>
+
+  <div id="steps-41" class="inner-level collapse collapsable-details ">
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Given</span>
+  <span class="name">I am logged in with Username and Password into the Pivotal Tracker</span>
+  
+  <span class="lead-duration duration">0.004</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+      </div>
+</div>
+
+
+    
+
+  </div>
+</div>
+
+                      
+<div class="element">
+  
+  
+<div class="tags indention">
+      <b>Tags:</b>
+           <a href="report-tag_2769378753.html">@deleteAccount</a>
+      </div>
+
+  
+  <span class="lead-duration duration">38.115</span>
+
+
+    <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-42">
+    
+<div class="brief passed">
+  <span class="keyword indention">Scenario Outline</span>
+  <span class="name">Add member to the account of Pivotal Tracker</span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </span>
+  <div class="description indention"></div>
+
+  <div id="element-42" class="collapse collapsable-details ">
+    
+
+
+    
+<div class="steps inner-level">
+    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-43">
+    
+<div class="brief passed">
+  <span class="keyword indention">Steps</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </div>
+
+  <div id="steps-43" class="inner-level collapse collapsable-details ">
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Given</span>
+  <span class="name">I create a new account &quot;<span class="argument">New Account</span>&quot; in Pivotal Tracker</span>
+  
+  <span class="lead-duration duration">5.812</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">When</span>
+  <span class="name">I add a Member &quot;<span class="argument">apitestingautomation</span>&quot;, &quot;<span class="argument">api.testing.automation@gmail.com</span>&quot; to the account and assign a Account Role &quot;<span class="argument">Owner</span>&quot; without permission of project creator</span>
+  
+  <span class="lead-duration duration">31.132</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Then</span>
+  <span class="name">I should see message of confirmation &quot;<span class="argument">Updated member 'apitestingautomation'</span>&quot; in the Membership Page of Account</span>
+  
+  <span class="lead-duration duration">1.112</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">I should see the member that was added in the table of the Membership Page of Account</span>
+  
+  <span class="lead-duration duration">0.059</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+      </div>
+</div>
+
+
+    
+  <div class="inner-level hooks-element-after">
+        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-44">
+      
+<div class="brief passed">
+  <span class="keyword indention">Hooks</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+    </div>
+
+    <div id="after-44" class="inner-level collapse collapsable-details ">
+              <div class="hook">
+          <div class="brief passed">
+            <span class="keyword indention">After</span>
+                          <span class="location name">AccountsSteps.deleteAccount()</span>
+                        
+  <span class="lead-duration duration">3.153</span>
+
+          </div>
+
+                      
+
+          
+                    
+
+          
+  
+        </div>
+          </div>
+  </div>
+
+  </div>
+</div>
+
+                      
+<div class="element">
+  
+  
+<div class="tags indention">
+  </div>
+
+  
+  <span class="lead-duration duration">0.007</span>
+
+
+    <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-45">
+    
+<div class="brief passed">
+  <span class="keyword indention">Background</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </span>
+  <div class="description indention"></div>
+
+  <div id="element-45" class="collapse collapsable-details ">
+    
+
+
+    
+<div class="steps inner-level">
+    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-46">
+    
+<div class="brief passed">
+  <span class="keyword indention">Steps</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </div>
+
+  <div id="steps-46" class="inner-level collapse collapsable-details ">
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Given</span>
+  <span class="name">I am logged in with Username and Password into the Pivotal Tracker</span>
+  
+  <span class="lead-duration duration">0.007</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+      </div>
+</div>
+
+
+    
+
+  </div>
+</div>
+
+                      
+<div class="element">
+  
+  
+<div class="tags indention">
+      <b>Tags:</b>
+           <a href="report-tag_2769378753.html">@deleteAccount</a>
+      </div>
+
+  
+  <span class="lead-duration duration">6.070</span>
+
+
+    <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-47">
+    
+<div class="brief passed">
+  <span class="keyword indention">Scenario Outline</span>
+  <span class="name">Delete member of an account Pivotal Tracker</span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </span>
+  <div class="description indention"></div>
+
+  <div id="element-47" class="collapse collapsable-details ">
+    
+
+
+    
+<div class="steps inner-level">
+    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-48">
+    
+<div class="brief passed">
+  <span class="keyword indention">Steps</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </div>
+
+  <div id="steps-48" class="inner-level collapse collapsable-details ">
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Given</span>
+  <span class="name">I create a new account &quot;<span class="argument">New Account</span>&quot; in Pivotal Tracker</span>
+  
+  <span class="lead-duration duration">3.277</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">I add a Member &quot;<span class="argument">gluisalberto68</span>&quot;, &quot;<span class="argument">g.luisalberto68@gmail.com</span>&quot; to the account and assign a Account Role &quot;<span class="argument">Member</span>&quot; with permission of project creator</span>
+  
+  <span class="lead-duration duration">1.272</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">When</span>
+  <span class="name">I delete the member &quot;<span class="argument">gluisalberto68</span>&quot; from Pivotal Tracker account in the Account Memberships</span>
+  
+  <span class="lead-duration duration">1.446</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Then</span>
+  <span class="name">I should not see the member of account in the table of the Membership Page of Account</span>
+  
+  <span class="lead-duration duration">0.073</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+      </div>
+</div>
+
+
+    
+  <div class="inner-level hooks-element-after">
+        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-49">
+      
+<div class="brief passed">
+  <span class="keyword indention">Hooks</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+    </div>
+
+    <div id="after-49" class="inner-level collapse collapsable-details ">
+              <div class="hook">
+          <div class="brief passed">
+            <span class="keyword indention">After</span>
+                          <span class="location name">AccountsSteps.deleteAccount()</span>
+                        
+  <span class="lead-duration duration">3.559</span>
+
+          </div>
+
+                      
+
+          
+                    
+
+          
+  
+        </div>
+          </div>
+  </div>
+
+  </div>
+</div>
+
+                      
+<div class="element">
+  
+  
+<div class="tags indention">
+  </div>
+
+  
+  <span class="lead-duration duration">0.004</span>
+
+
+    <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-50">
+    
+<div class="brief passed">
+  <span class="keyword indention">Background</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </span>
+  <div class="description indention"></div>
+
+  <div id="element-50" class="collapse collapsable-details ">
+    
+
+
+    
+<div class="steps inner-level">
+    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-51">
+    
+<div class="brief passed">
+  <span class="keyword indention">Steps</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </div>
+
+  <div id="steps-51" class="inner-level collapse collapsable-details ">
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Given</span>
+  <span class="name">I am logged in with Username and Password into the Pivotal Tracker</span>
+  
+  <span class="lead-duration duration">0.004</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+      </div>
+</div>
+
+
+    
+
+  </div>
+</div>
+
+                      
+<div class="element">
+  
+  
+<div class="tags indention">
+      <b>Tags:</b>
+           <a href="report-tag_2769378753.html">@deleteAccount</a>
+      </div>
+
+  
+  <span class="lead-duration duration">5.821</span>
+
+
+    <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-52">
+    
+<div class="brief passed">
+  <span class="keyword indention">Scenario Outline</span>
+  <span class="name">Delete member of an account Pivotal Tracker</span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </span>
+  <div class="description indention"></div>
+
+  <div id="element-52" class="collapse collapsable-details ">
+    
+
+
+    
+<div class="steps inner-level">
+    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-53">
+    
+<div class="brief passed">
+  <span class="keyword indention">Steps</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </div>
+
+  <div id="steps-53" class="inner-level collapse collapsable-details ">
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Given</span>
+  <span class="name">I create a new account &quot;<span class="argument">New Account</span>&quot; in Pivotal Tracker</span>
+  
+  <span class="lead-duration duration">3.402</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">I add a Member &quot;<span class="argument">cxristianlujan05</span>&quot;, &quot;<span class="argument">cxristian.lujan05@gmail.com</span>&quot; to the account and assign a Account Role &quot;<span class="argument">Admin</span>&quot; with permission of project creator</span>
+  
+  <span class="lead-duration duration">1.166</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">When</span>
+  <span class="name">I delete the member &quot;<span class="argument">cxristianlujan05</span>&quot; from Pivotal Tracker account in the Account Memberships</span>
+  
+  <span class="lead-duration duration">1.180</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Then</span>
+  <span class="name">I should not see the member of account in the table of the Membership Page of Account</span>
+  
+  <span class="lead-duration duration">0.073</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+      </div>
+</div>
+
+
+    
+  <div class="inner-level hooks-element-after">
+        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-54">
+      
+<div class="brief passed">
+  <span class="keyword indention">Hooks</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+    </div>
+
+    <div id="after-54" class="inner-level collapse collapsable-details ">
+              <div class="hook">
+          <div class="brief passed">
+            <span class="keyword indention">After</span>
+                          <span class="location name">AccountsSteps.deleteAccount()</span>
+                        
+  <span class="lead-duration duration">2.970</span>
+
+          </div>
+
+                      
+
+          
+                    
+
+          
+  
+        </div>
+          </div>
+  </div>
+
+  </div>
+</div>
+
+                      
+<div class="element">
+  
+  
+<div class="tags indention">
+  </div>
+
+  
+  <span class="lead-duration duration">0.003</span>
+
+
+    <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-55">
+    
+<div class="brief passed">
+  <span class="keyword indention">Background</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </span>
+  <div class="description indention"></div>
+
+  <div id="element-55" class="collapse collapsable-details ">
+    
+
+
+    
+<div class="steps inner-level">
+    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-56">
+    
+<div class="brief passed">
+  <span class="keyword indention">Steps</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </div>
+
+  <div id="steps-56" class="inner-level collapse collapsable-details ">
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Given</span>
+  <span class="name">I am logged in with Username and Password into the Pivotal Tracker</span>
+  
+  <span class="lead-duration duration">0.003</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+      </div>
+</div>
+
+
+    
+
+  </div>
+</div>
+
+                      
+<div class="element">
+  
+  
+<div class="tags indention">
+      <b>Tags:</b>
+           <a href="report-tag_2769378753.html">@deleteAccount</a>
+      </div>
+
+  
+  <span class="lead-duration duration">7.686</span>
+
+
+    <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-57">
+    
+<div class="brief passed">
+  <span class="keyword indention">Scenario Outline</span>
+  <span class="name">Change Role of a member of an account of Pivotal Tracker</span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </span>
+  <div class="description indention"></div>
+
+  <div id="element-57" class="collapse collapsable-details ">
+    
+
+
+    
+<div class="steps inner-level">
+    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-58">
+    
+<div class="brief passed">
+  <span class="keyword indention">Steps</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </div>
+
+  <div id="steps-58" class="inner-level collapse collapsable-details ">
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Given</span>
+  <span class="name">I create a new account &quot;<span class="argument">New Account</span>&quot; in Pivotal Tracker</span>
+  
+  <span class="lead-duration duration">3.142</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">I add a Member &quot;<span class="argument">gluisalberto68</span>&quot;, &quot;<span class="argument">g.luisalberto68@gmail.com</span>&quot; to the account and assign a Account Role &quot;<span class="argument">Member</span>&quot; with permission of project creator</span>
+  
+  <span class="lead-duration duration">1.174</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">When</span>
+  <span class="name">I update an Account Role &quot;<span class="argument">Admin</span>&quot; of the member</span>
+  
+  <span class="lead-duration duration">3.058</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Then</span>
+  <span class="name">I verify the Member Role has changed his Account Role to &quot;<span class="argument">Admin</span>&quot;</span>
+  
+  <span class="lead-duration duration">0.286</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">I should see message of confirmation &quot;<span class="argument">Updated member 'gluisalberto68'</span>&quot; in the Membership Page of Account</span>
+  
+  <span class="lead-duration duration">0.024</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+      </div>
+</div>
+
+
+    
+  <div class="inner-level hooks-element-after">
+        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-59">
+      
+<div class="brief passed">
+  <span class="keyword indention">Hooks</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+    </div>
+
+    <div id="after-59" class="inner-level collapse collapsable-details ">
+              <div class="hook">
+          <div class="brief passed">
+            <span class="keyword indention">After</span>
+                          <span class="location name">AccountsSteps.deleteAccount()</span>
+                        
+  <span class="lead-duration duration">3.399</span>
+
+          </div>
+
+                      
+
+          
+                    
+
+          
+  
+        </div>
+          </div>
+  </div>
+
+  </div>
+</div>
+
+                      
+<div class="element">
+  
+  
+<div class="tags indention">
+  </div>
+
+  
+  <span class="lead-duration duration">0.003</span>
+
+
+    <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-60">
+    
+<div class="brief passed">
+  <span class="keyword indention">Background</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </span>
+  <div class="description indention"></div>
+
+  <div id="element-60" class="collapse collapsable-details ">
+    
+
+
+    
+<div class="steps inner-level">
+    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-61">
+    
+<div class="brief passed">
+  <span class="keyword indention">Steps</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </div>
+
+  <div id="steps-61" class="inner-level collapse collapsable-details ">
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Given</span>
+  <span class="name">I am logged in with Username and Password into the Pivotal Tracker</span>
+  
+  <span class="lead-duration duration">0.003</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+      </div>
+</div>
+
+
+    
+
+  </div>
+</div>
+
+                      
+<div class="element">
+  
+  
+<div class="tags indention">
+      <b>Tags:</b>
+           <a href="report-tag_2769378753.html">@deleteAccount</a>
+      </div>
+
+  
+  <span class="lead-duration duration">6.167</span>
+
+
+    <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-62">
+    
+<div class="brief passed">
+  <span class="keyword indention">Scenario Outline</span>
+  <span class="name">Change Role of a member of an account of Pivotal Tracker</span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </span>
+  <div class="description indention"></div>
+
+  <div id="element-62" class="collapse collapsable-details ">
+    
+
+
+    
+<div class="steps inner-level">
+    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-63">
+    
+<div class="brief passed">
+  <span class="keyword indention">Steps</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+  </div>
+
+  <div id="steps-63" class="inner-level collapse collapsable-details ">
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Given</span>
+  <span class="name">I create a new account &quot;<span class="argument">New Account</span>&quot; in Pivotal Tracker</span>
+  
+  <span class="lead-duration duration">3.571</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">I add a Member &quot;<span class="argument">gluisalberto68</span>&quot;, &quot;<span class="argument">g.luisalberto68@gmail.com</span>&quot; to the account and assign a Account Role &quot;<span class="argument">Member</span>&quot; with permission of project creator</span>
+  
+  <span class="lead-duration duration">1.083</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">When</span>
+  <span class="name">I update an Account Role &quot;<span class="argument">Owner</span>&quot; of the member</span>
+  
+  <span class="lead-duration duration">1.143</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">Then</span>
+  <span class="name">I verify the Member Role has changed his Account Role to &quot;<span class="argument">Owner</span>&quot;</span>
+  
+  <span class="lead-duration duration">0.344</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">I should see message of confirmation &quot;<span class="argument">Updated member 'gluisalberto68'</span>&quot; in the Membership Page of Account</span>
+  
+  <span class="lead-duration duration">0.024</span>
+
+</div>
+
+        
+
+        
+
+
+        
+        
+
+        
+
+        
+  
+        
+
+      </div>
+      </div>
+</div>
+
+
+    
+  <div class="inner-level hooks-element-after">
+        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-64">
+      
+<div class="brief passed">
+  <span class="keyword indention">Hooks</span>
+  <span class="name"></span>
+  
+
+       <i class="chevron fa fa-fw"></i>
+  </div>
+
+    </div>
+
+    <div id="after-64" class="inner-level collapse collapsable-details ">
+              <div class="hook">
+          <div class="brief passed">
+            <span class="keyword indention">After</span>
+                          <span class="location name">AccountsSteps.deleteAccount()</span>
+                        
+  <span class="lead-duration duration">2.731</span>
+
+          </div>
+
+                      
+
+          
+                    
+
+          
+  
+        </div>
+          </div>
+  </div>
+
+  </div>
+</div>
+
+                  </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-1 col-md-offset-10">
+      <i class="fa fa-chevron-circle-down fa-2x collapsable-control"
+        onClick="javascript:$('#report .collapsable-details').collapse('show')"></i>
+      <i class="fa fa-chevron-circle-up fa-2x collapsable-control"
+        onClick="javascript:$('#report .collapsable-details').collapse('hide')"></i>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<nav class="navbar navbar-default" id="footer">
+  <div class="container-fluid">
+    <p class="navbar-text navbar-right">
+        <small>generate Cucumber HTML reports via:&nbsp;</small>
+        <a class="navbar-link" href="https://github.com/jenkinsci/cucumber-reports-plugin">Jenkins Plugin</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/cucumber-reporting">Standalone</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/cucumber-sandwich">Sandwich</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/maven-cucumber-reporting">Maven</a>
+        &nbsp;&nbsp;
+    </p>
+  </div>
+</nav>
+
+</body>
+</html>

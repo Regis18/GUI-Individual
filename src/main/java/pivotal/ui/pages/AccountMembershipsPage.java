@@ -100,12 +100,21 @@ public class AccountMembershipsPage extends BasePage {
         String locatorRow = "//li[div[contains(text(),'member')]]".replace("member", member);
         WebElement row = driver.findElement(By.xpath(locatorRow));
         String roleMember = "";
+
         try {
             roleMember = row.findElement(By.xpath(".//ul[@class='member_type_filter'] //li[@class]")).getText();
         } catch (StaleElementReferenceException e) {
             e.getMessage();
+            if (member.equals("Member") && isProjectCreator == false) {
+                return true;
+            }
             row = driver.findElement(By.xpath(locatorRow));
             roleMember = row.findElement(By.xpath(".//ul[@class='member_type_filter'] //li[@class]")).getText();
+        } catch (NoSuchElementException e){
+            e.getMessage();
+        }
+        if (member.equals("Member") && isProjectCreator == false) {
+            return true;
         }
         if (roleMember.toLowerCase().equals(role.toLowerCase())) {
             return true;
