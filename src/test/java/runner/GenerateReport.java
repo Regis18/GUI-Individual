@@ -3,6 +3,7 @@ package runner;
 
 import net.masterthought.cucumber.Configuration;
 import net.masterthought.cucumber.ReportBuilder;
+import net.masterthought.cucumber.Reportable;
 import net.masterthought.cucumber.presentation.PresentationMode;
 import net.masterthought.cucumber.sorting.SortingMethod;
 
@@ -12,29 +13,25 @@ import java.util.List;
 
 public class GenerateReport {
     public static void generateMasterReport() {
-        try{
-            File reportOutputDirectory = new File("target");
-            List<String> list = new ArrayList<>();
-            list.add("target/cucumber1.json");
-            list.add("target/cucumber2.json");
+        File reportOutputDirectory = new File("target");
+        List<String> jsonFiles = new ArrayList<>();
+        jsonFiles.add("C:\\Users\\Admin\\IdeaProjects\\GUI TESTING\\target\\cucumber.json");
 
-            String buildNumber = "1";
-            boolean runWithJenkins = false;
-            String projectName = "Accounts Pivotal Tracker";
-            Configuration configuration = new Configuration(reportOutputDirectory,projectName);
-            configuration.setRunWithJenkins(runWithJenkins);
-            configuration.setBuildNumber(buildNumber);
-            configuration.addClassifications("Platform", "Windows");
-            configuration.addClassifications("Browser", "Chrome");
-            configuration.addClassifications("Branch", "release/1.0");
-            configuration.setSortingMethod(SortingMethod.NATURAL);
-            configuration.addPresentationModes(PresentationMode.EXPAND_ALL_STEPS);
+        String buildNumber = "1";
+        String projectName = "Pivotel tracker Accounts";
+        boolean runWithJenkins = false;
 
-            ReportBuilder reportBuilder = new ReportBuilder(list,configuration);
-            reportBuilder.generateReports();
+        Configuration configuration = new Configuration(reportOutputDirectory, projectName);
+        configuration.setRunWithJenkins(runWithJenkins);
+        configuration.setBuildNumber(buildNumber);
+// addidtional metadata presented on main page
+        configuration.addClassifications("Platform", "Windows");
+        configuration.addClassifications("Browser", "Chrome");
+        configuration.addClassifications("Branch", "release/1.0");
 
-        }catch(Exception e){
-            e.printStackTrace();
-        }
+
+        ReportBuilder reportBuilder = new ReportBuilder(jsonFiles, configuration);
+        Reportable result = reportBuilder.generateReports();
+// and here validate 'result' to decide what to do if report has failed
     }
 }

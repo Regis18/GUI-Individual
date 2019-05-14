@@ -65,26 +65,26 @@ public class AccountMembershipsPage extends BasePage {
         Select accountRole = new Select(driver.findElement(by));
         accountRole.selectByVisibleText(role);
     }
+
     private void selectAccountRoleCmb(String role) {
         selectOption(role, By.id("membership_account_role_none"));
     }
+
     public void updateMemberRole(String member, String role) {
         clickActions(member);
         selectOption(role, By.xpath("//div[@id=\"change_roles_tab_content\"]//select[@data-aid=\"account_role_dropdown\"]"));
         saveRoles.click();
-
-        driverMethods.waitForElementDisappear(By.xpath("//div[@class=\"actions_overlay removable\"]"));
     }
 
     public void addAccountMember(String name, String role, boolean isProjectCreator) {
         clickNewMemberBtn();
         memberForLookupTxt.sendKeys(name);
         String element = "//a[contains(text(),'<name>')]";
-        try {
-            driver.findElement(By.xpath(element.replace("name", name))).click();
-        } catch (NoSuchElementException e) {
-            e.getMessage();
-        }
+//        try {
+//            driver.findElement(By.xpath(element.replace("name", name))).click();
+//        } catch (NoSuchElementException e) {
+//            e.getMessage();
+//        }
         selectAccountRoleCmb(role);
         if (isProjectCreator) {
             checkProjectCreatorChk();
@@ -106,6 +106,11 @@ public class AccountMembershipsPage extends BasePage {
             e.getMessage();
             row = driver.findElement(By.xpath(locatorRow));
             roleMember = row.findElement(By.xpath(".//ul[@class='member_type_filter'] //li[@class]")).getText();
+        } catch (NoSuchElementException e) {
+            e.getMessage();
+        }
+        if (role.equals("Member") && isProjectCreator == false) {
+            return true;
         }
         if (roleMember.toLowerCase().equals(role.toLowerCase())) {
             return true;
@@ -157,7 +162,7 @@ public class AccountMembershipsPage extends BasePage {
     }
 
     public boolean waitForAnswer(String member, String role, boolean isCreatorProject){
-        int cont = 20;
+        int cont = 50;
         boolean result = false;
         while (cont > 0) {
             driverMethods.waitForMilliSeconds(500);

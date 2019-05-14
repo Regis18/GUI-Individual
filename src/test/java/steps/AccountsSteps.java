@@ -5,6 +5,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import pivotal.entities.Accounts;
+import pivotal.entities.Context;
 import pivotal.ui.components.AccountBar;
 import pivotal.ui.pages.AccountMembershipsPage;
 import pivotal.ui.pages.AccountSettingsPage;
@@ -24,12 +25,17 @@ public class AccountsSteps {
     private CreateAccountPopup accountPopup;
     private AccountBar accountBar;
     private PageTransporter pageTransporter = PageTransporter.getInstance();
-    private Accounts account = new Accounts();
+    private Accounts account;
     private AccountSettingsPage accountSettingsPage;
     private DashboardPage dashboardPage;
     private CreateProjectPopup createProjectPopup;
     private AccountMembershipsPage accountMembershipsPage;
+    private Context context;
 
+    public AccountsSteps(Context context) {
+        this.context = context;
+        this.account = context.getAccounts();
+    }
 
     @When("^I create a new account \"([^\"]*)\" in Pivotal Tracker$")
     public void createANewAccountInPivotalTracker(final String nameAccount) {
@@ -108,7 +114,7 @@ public class AccountsSteps {
     public void seeTheMemberInTheTableOfTheMembershipPageOfAccount() {
         assertTrue(accountMembershipsPage.isMemberInTheList(account.getNameMember(),
                 account.getRoleMember(),
-                true),
+                account.isProjectCreator()),
                 "The member added is not correct, Member: " + account.getNameMember());
     }
 
@@ -117,7 +123,7 @@ public class AccountsSteps {
     public void addAMemberToTheAccount(String member, String email, String role) {
         account.setNameMember(member);
         account.setRoleMember(role);
-        account.setProjectCreator(true);
+        account.setProjectCreator(false);
         accountMembershipsPage = pageTransporter.navigateToAccountMembershipPage(account.getUrlAccountMember());
         accountMembershipsPage.addAccountMember(email, role, false);
     }
@@ -129,7 +135,7 @@ public class AccountsSteps {
 
     @Then("^I should not see the member of account in the table of the Membership Page of Account$")
     public void seeNotTheMemberOfAccountInTheTableOfTheMembershipPageOfAccount() {
-        assertFalse(accountMembershipsPage.elementDisappear(account.getNameMember()),
+        assertTrue(accountMembershipsPage.elementDisappear(account.getNameMember()),
                 "The member was not deleted " + account.getNameMember());
     }
 
@@ -140,19 +146,18 @@ public class AccountsSteps {
 
     @Then("^I verify the Member Role has changed his Account Role to \"([^\"]*)\"$")
     public void verifyTheMemberRoleHasChangedHisAccountRoleTo(String role) {
-        System.out.println("STEPS " + account.getNameMember() + " " + role);
         assertTrue(accountMembershipsPage.waitForAnswer(account.getNameMember(), role, true),
                 "The Member Account doesn't change its role: " + role);
     }
 
     @And("^I should see all of the accounts except the deleted account$")
     public void iShouldSeeAllOfTheAccountsExceptTheDeletedAccount() {
-        assertFalse(accountsPage.elementDisappear(account.getNameAccount()));
+        assertTrue(accountsPage.elementDisappear(account.getNameAccount()));
     }
 
-    @After("@deleteAccount")
-    public void deleteAccount() {
-        pageTransporter.navigateToAccountSettingsPage(account.getUrlSettings());
-        accountSettingsPage.deleteAccount();
-    }
+//    @After("@deleteAccount")
+//    public void deleteAccount() {
+//        pageTransporter.navigateToAccountSettingsPage(account.getUrlSettings());
+//        accountSettingsPage.deleteAccount();
+//    }
 }

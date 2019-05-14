@@ -34,6 +34,7 @@ public class Accounts {
         isProjectCreator = projectCreator;
     }
 
+
     public String getNameAccount() {
         return nameAccount;
     }
@@ -57,23 +58,14 @@ public class Accounts {
         return urlProjects;
     }
 
-    public void setUrlProjects(String urlProjects) {
-        this.urlProjects = urlProjects;
-    }
 
     public String getUrlAccountMember() {
         return urlAccountMember;
     }
 
-    public void setUrlAccountMember(String urlAccountMember) {
-        this.urlAccountMember = urlAccountMember;
-    }
 
     public String getUrlAccountPlans() {
         return urlAccountPlans;
     }
 
-    public void setUrlAccountPlans(String urlAccountPlans) {
-        this.urlAccountPlans = urlAccountPlans;
-    }
 }

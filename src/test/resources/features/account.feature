@@ -34,9 +34,9 @@ Feature: Create, Update and Delete of Account
 
     Examples:
       |nameMember|memberEmail	|Role|
-      |gluisalberto68|g.luisalberto68@gmail.com|Member|
-      |cxristianlujan05|cxristian.lujan05@gmail.com	|Admin|
-      |apitestingautomation|api.testing.automation@gmail.com|Owner|
+      |enriquehumana|enrique.humana@gmail.com|Member|
+      |testat09gui|test.at09.gui@gmail.com|Admin|
+      |uitesting_0209|uitesting_0209@outlook.com|Owner|
 
 
   @deleteAccount
@@ -48,9 +48,9 @@ Feature: Create, Update and Delete of Account
 
     Examples:
       |nameMember|memberEmail	|Role|
-      |gluisalberto68|g.luisalberto68@gmail.com|Member|
-      |cxristianlujan05|cxristian.lujan05@gmail.com	|Admin|
-      |apitestingautomation|api.testing.automation@gmail.com|Owner|
+      |enriquehumana|enrique.humana@gmail.com|Member|
+      |testat09gui|test.at09.gui@gmail.com|Admin|
+      |uitesting_0209|uitesting_0209@outlook.com|Owner|
 
   @deleteAccount
   Scenario Outline: Delete member of an account Pivotal Tracker
@@ -58,20 +58,19 @@ Feature: Create, Update and Delete of Account
     And I add a Member "<nameMember>", "<memberEmail>" to the account and assign a Account Role "<Role>" with permission of project creator
     When I delete the member "<nameMember>" from Pivotal Tracker account in the Account Memberships
     Then I should not see the member of account in the table of the Membership Page of Account
-#    Then I should see message of confirmation "'<nameMember>' has been removed from your account" in the Membership Page of Account
 
     Examples:
       |nameMember|memberEmail	|Role|
-      |gluisalberto68|g.luisalberto68@gmail.com|Member|
-      |cxristianlujan05|cxristian.lujan05@gmail.com	|Admin|
+      |enriquehumana|enrique.humana@gmail.com|Member|
+      |testat09gui|test.at09.gui@gmail.com|Admin|
 
   @deleteAccount
   Scenario Outline: Change Role of a member of an account of Pivotal Tracker
     Given I create a new account "New Account" in Pivotal Tracker
-    And I add a Member "gluisalberto68", "g.luisalberto68@gmail.com" to the account and assign a Account Role "Member" with permission of project creator
+    And I add a Member "enriquehumana", "enrique.humana@gmail.com" to the account and assign a Account Role "Member" with permission of project creator
     When I update an Account Role "<Role>" of the member
     Then I verify the Member Role has changed his Account Role to "<Role>"
-    And I should see message of confirmation "Updated member 'gluisalberto68'" in the Membership Page of Account
+    And I should see message of confirmation "Updated member 'enriquehumana'" in the Membership Page of Account
 
     Examples:
       |Role|

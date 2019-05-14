@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.tablesorter.min.js"></script>
+<script type="text/javascript" src="js/Chart.min.js"></script>
+<script type="text/javascript" src="js/moment.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
+<link rel="stylesheet" href="css/cucumber.css" type="text/css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="shortcut icon" href="images/favicon.png"/>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    // this will tell tablesorter to try looking for the data-value attribute
+    // if present, it'll sort by that instead
+    // otherwise, it'll sort by the text content of the table cell
+    $("#tablesorter").tablesorter({
+        textAttribute: 'data-value',
+        // ignores the first row of the header, the 'scenario', 'steps', since
+        // sorting those doesn't make sense
+        selectorHeaders: '> thead tr:not(.dont-sort) th',
+        // use a stable sort
+        sortStable: true
+    });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+  
+<title>Cucumber Reports (no 1) - Steps Overview</title>
+
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navigation">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse">
+      <p class="navbar-text navbar-left">Cucumber Report</p>
+      <ul class="nav navbar-nav navbar-right">
+                <li role="presentation" ><a href="overview-features.html">Features</a></li>
+        <li role="presentation" ><a href="overview-tags.html">Tags</a></li>
+        <li role="presentation"     class="active" ><a href="overview-steps.html">Steps</a></li>
+                <li role="presentation" ><a href="overview-failures.html">Failures</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container-fluid">
+  <div class="col-md-5 col-md-offset-1">
+    
+<table class="table table-bordered" id="build-info">
+  <thead>
+    <tr>
+      <th>Project</th>
+              <th>Number</th>
+            <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="info">
+      <td>Pivotel tracker Accounts</td>
+              <td>1</td>
+            <td>14 May 2019, 15:36</td>
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+  <div class="col-md-3 col-md-offset-2">
+      </div>
+</div>
+
+
+<div id="report-lead" class="container-fluid">
+  <div class="col-md-10 col-md-offset-1">
+    <h2>Steps Statistics</h2>
+          <p>The following graph shows step statistics for this build. Below list is based on results.
+ step does not provide information about result then is not listed below.
+ Additionally @Before and @After are not counted because they are part of the scenarios, not steps.</p>
+      </div>
+</div>
+
+<div class="container-fluid" id="report">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <table id="tablesorter" class="stats-table table-hover">
+
+        <thead>
+          <tr class="header">
+            <th>Implementation</th>
+            <th>Occurrences</th>
+            <th>Average duration</th>
+            <th>Max duration</th>
+            <th>Total durations</th>
+            <th>Ratio</th>
+          </tr>
+        </thead>
+
+        <tbody>
+                      <tr>
+              <td class="location">AccountsSteps.addAMemberToTheAccount(String,String,String)</td>
+              <td>3</td>
+              <td class="duration" data-value="1085387099">1.085</td>
+              <td class="duration" data-value="1085387099">1.165</td>
+              <td class="duration" data-value="3256161299">3.256</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">AccountsSteps.addAMemberToTheAccountWithPermissionOfProjectCreator(String,String,String)</td>
+              <td>7</td>
+              <td class="duration" data-value="2340849099">2.340</td>
+              <td class="duration" data-value="2340849099">4.709</td>
+              <td class="duration" data-value="16385943695">16.385</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">AccountsSteps.configureTheAccountNameAndSaveTheChanges(String)</td>
+              <td>1</td>
+              <td class="duration" data-value="3408753700">3.408</td>
+              <td class="duration" data-value="3408753700">3.408</td>
+              <td class="duration" data-value="3408753700">3.408</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">AccountsSteps.createANewAccountInPivotalTracker(String)</td>
+              <td>13</td>
+              <td class="duration" data-value="4107724076">4.107</td>
+              <td class="duration" data-value="4107724076">8.360</td>
+              <td class="duration" data-value="53400412999">53.400</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">AccountsSteps.deleteTheMemberFromPivotalTrackerAccountInTheAccountMemberships(String)</td>
+              <td>2</td>
+              <td class="duration" data-value="1740874950">1.740</td>
+              <td class="duration" data-value="1740874950">1.862</td>
+              <td class="duration" data-value="3481749900">3.481</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">AccountsSteps.enterToTheSettingsAndDeleteTheAccountWithName(String)</td>
+              <td>1</td>
+              <td class="duration" data-value="2898775499">2.898</td>
+              <td class="duration" data-value="2898775499">2.898</td>
+              <td class="duration" data-value="2898775499">2.898</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">AccountsSteps.iShouldSeeAllOfTheAccountsExceptTheDeletedAccount()</td>
+              <td>1</td>
+              <td class="duration" data-value="543583400">0.543</td>
+              <td class="duration" data-value="543583400">0.543</td>
+              <td class="duration" data-value="543583400">0.543</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">AccountsSteps.navigateToAccountPage()</td>
+              <td>2</td>
+              <td class="duration" data-value="1474929600">1.474</td>
+              <td class="duration" data-value="1474929600">1.504</td>
+              <td class="duration" data-value="2949859200">2.949</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">AccountsSteps.navigateToDashboardPage()</td>
+              <td>1</td>
+              <td class="duration" data-value="783869401">0.783</td>
+              <td class="duration" data-value="783869401">0.783</td>
+              <td class="duration" data-value="783869401">0.783</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">AccountsSteps.seeAYellowMessage(String)</td>
+              <td>1</td>
+              <td class="duration" data-value="36223501">0.036</td>
+              <td class="duration" data-value="36223501">0.036</td>
+              <td class="duration" data-value="36223501">0.036</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">AccountsSteps.seeInTheAccountsPageTheAccountCreated()</td>
+              <td>2</td>
+              <td class="duration" data-value="36888800">0.036</td>
+              <td class="duration" data-value="36888800">0.038</td>
+              <td class="duration" data-value="73777600">0.073</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">AccountsSteps.seeMessageOfConfirmationInTheMembershipPageOfAccount(String)</td>
+              <td>8</td>
+              <td class="duration" data-value="399687050">0.399</td>
+              <td class="duration" data-value="399687050">0.646</td>
+              <td class="duration" data-value="3197496400">3.197</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">AccountsSteps.seeNotTheMemberOfAccountInTheTableOfTheMembershipPageOfAccount()</td>
+              <td>2</td>
+              <td class="duration" data-value="880869700">0.880</td>
+              <td class="duration" data-value="880869700">0.924</td>
+              <td class="duration" data-value="1761739401">1.761</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">AccountsSteps.seeTheMemberInTheTableOfTheMembershipPageOfAccount()</td>
+              <td>6</td>
+              <td class="duration" data-value="5059490299">5.059</td>
+              <td class="duration" data-value="5059490299">30.044</td>
+              <td class="duration" data-value="30356941798">30.356</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">AccountsSteps.seeTheNewAccountInTheAccountsPage()</td>
+              <td>2</td>
+              <td class="duration" data-value="175572700">0.175</td>
+              <td class="duration" data-value="175572700">0.175</td>
+              <td class="duration" data-value="351145400">0.351</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">AccountsSteps.seeTheNewAccountInTheProjectCreationPopup()</td>
+              <td>1</td>
+              <td class="duration" data-value="3983540300">3.983</td>
+              <td class="duration" data-value="3983540300">3.983</td>
+              <td class="duration" data-value="3983540300">3.983</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">AccountsSteps.updateAnAccountRoleOfTheMember(String)</td>
+              <td>2</td>
+              <td class="duration" data-value="1080348549">1.080</td>
+              <td class="duration" data-value="1080348549">1.198</td>
+              <td class="duration" data-value="2160697099">2.160</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">AccountsSteps.verifyTheMemberRoleHasChangedHisAccountRoleTo(String)</td>
+              <td>2</td>
+              <td class="duration" data-value="387579199">0.387</td>
+              <td class="duration" data-value="387579199">0.389</td>
+              <td class="duration" data-value="775158399">0.775</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">LoginSteps.logIn()</td>
+              <td>13</td>
+              <td class="duration" data-value="2992936430">2.992</td>
+              <td class="duration" data-value="2992936430">38.819</td>
+              <td class="duration" data-value="38908173598">38.908</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">accountHooks.deleteAccount()</td>
+              <td>12</td>
+              <td class="duration" data-value="3250125966">3.250</td>
+              <td class="duration" data-value="3250125966">5.020</td>
+              <td class="duration" data-value="39001511603">39.001</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">accountHooks.embedScreenshot(Scenario)</td>
+              <td>13</td>
+              <td class="duration" data-value="173038">0.000</td>
+              <td class="duration" data-value="173038">0.001</td>
+              <td class="duration" data-value="2249500">0.002</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                  </tbody>
+
+        <tfoot class="total">
+          <tr>
+            <td>21</td>
+            <td>95</td>
+            <td class="duration">2.186</td>
+            <td class="duration">53.400</td>
+            <td class="duration">3:27.717</td>
+            <td>Totals</td>
+          </tr>
+        </tfoot>
+
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<nav class="navbar navbar-default" id="footer">
+  <div class="container-fluid">
+    <p class="navbar-text navbar-right">
+        <small>generate Cucumber HTML reports via:&nbsp;</small>
+        <a class="navbar-link" href="https://github.com/jenkinsci/cucumber-reports-plugin">Jenkins Plugin</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/cucumber-reporting">Standalone</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/cucumber-sandwich">Sandwich</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/maven-cucumber-reporting">Maven</a>
+        &nbsp;&nbsp;
+    </p>
+  </div>
+</nav>
+
+</body>
+</html>
