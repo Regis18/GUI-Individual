@@ -1,8 +1,10 @@
 package steps;
 
+import core.utils.Logs;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.apache.log4j.Logger;
 import pivotal.entities.Accounts;
 import pivotal.entities.Context;
 import pivotal.entities.UrlAccounts;
@@ -24,6 +26,7 @@ public class AccountsSteps {
     private CreateProjectPopup createProjectPopup;
     private AccountMembershipsPage accountMembershipsPage;
     private Context context;
+    private Logger logs = Logs.getInstance().getLog();
 
     public AccountsSteps(Context context) {
         this.context = context;
@@ -33,6 +36,7 @@ public class AccountsSteps {
 
     @When("^I create a new account \"([^\"]*)\" in Pivotal Tracker$")
     public void createANewAccountInPivotalTracker(final String nameAccount) {
+        logs.info("Create a new account " + nameAccount + " in Pivotal Tracker");
         account.setNameAccount(nameAccount);
         accountsPage = pageTransporter.navigateToAccountsPage();
         accountPopup = accountsPage.clickNewAccountCreateBtn();
@@ -40,21 +44,24 @@ public class AccountsSteps {
         urlAccounts.setUrlSettings(accountPlansPage.getURLAccountSettings());
     }
 
-    @Then("^I should see the new account page$")
-    public void seeInTheAccountsPageTheAccountCreated() {
+    @Then("I should see the new Account Page")
+    public void seeTheNewAccountPage() {
+        logs.info("The Account Page is tested if it owns to the account created");
         assertEquals(accountPlansPage.getAccountBar().getNameAccount(),
-                    account.getNameAccount(),
-                    "The account was created with another name");
+                account.getNameAccount(),
+                "The account was created with another name");
     }
 
     @And("^I should see the new account in the Accounts page$")
     public void seeTheNewAccountInTheAccountsPage() {
+        logs.info("Verify the account " + account.getNameAccount() + " exists in the Account List");
         boolean existAccount = accountsPage.verifyAccountInList(account.getNameAccount());
         assertTrue(existAccount,"Don't exist the account in the Account Page");
     }
 
     @When("^I update the account Name with \"([^\"]*)\"$")
     public void configureTheAccountNameAndSaveTheChanges(String nameAccount) {
+        logs.info("Update the name " + account.getNameAccount() + " inthe");
         account.setNameAccount(nameAccount);
         pageTransporter.navigateToAccountSettingsPage(urlAccounts.getUrlSettings());
         accountSettingsPage.setNameAccount(nameAccount);
@@ -153,4 +160,6 @@ public class AccountsSteps {
     public void iShouldSeeAllOfTheAccountsExceptTheDeletedAccount() {
         assertTrue(accountsPage.elementDisappear(account.getNameAccount()));
     }
+
+
 }

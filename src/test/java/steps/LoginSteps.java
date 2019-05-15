@@ -3,7 +3,9 @@ package steps;
 import com.google.gson.JsonObject;
 import core.selenium.WebDriverManager;
 import core.utils.FileReader;
+import core.utils.Logs;
 import cucumber.api.java.en.Given;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import pivotal.ui.pages.LoginPage;
 import pivotal.ui.pages.PageTransporter;
@@ -19,9 +21,11 @@ public class LoginSteps {
     // Pages
     private LoginPage loginPage;
     protected WebDriver driver;
+    private Logger logs = Logs.getInstance().getLog();
 
     @Given("^I am logged in with Username and Password into the Pivotal Tracker$")
     public void logIn() {
+        logs.info("The user is logging in to the application Pivotal Tracker");
         JsonObject user = FileReader.readCredentials();
         driver = WebDriverManager.getInstance().getWebDriver();
         String title = driver.getTitle();

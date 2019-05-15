@@ -30,7 +30,7 @@ public class Logs {
     public static Logs getInstance() {
         if (instance == null) {
             instance = new Logs();
-            PropertyConfigurator.configure("../ToolSearch/src/main/config/log4j.properties");
+            PropertyConfigurator.configure("../GUI-Individual/log.properties");
             log.setLevel(Level.ALL);
         }
         return instance;
