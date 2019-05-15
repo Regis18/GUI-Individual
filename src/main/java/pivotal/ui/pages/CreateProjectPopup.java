@@ -13,6 +13,7 @@ public class CreateProjectPopup extends BasePage {
     @FindBy (xpath = "//fieldset[@data-aid=\"account-selector\"]")
     private WebElement accountCmb;
 
+    private String accountList = "//div[@class=\"tc-account-selector__option-account-name\"]";
 
     @Override
     public void waitUntilPageObjectIsLoaded() {
@@ -22,7 +23,7 @@ public class CreateProjectPopup extends BasePage {
     public Boolean verifyAccountInList(String nameAccount) {
         clickAccountCmb();
         return MatchValue.existValueInList(nameAccount,
-                driver.findElements(By.xpath("//div[@class=\"tc-account-selector__option-account-name\"]")));
+                driver.findElements(By.xpath(accountList)));
     }
 
     private void clickAccountCmb() {

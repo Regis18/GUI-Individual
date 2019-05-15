@@ -7,8 +7,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import pivotal.ui.BasePage;
 
 public class AccountSettingsPage extends BasePage {
-    @FindBy(xpath = "//div[@class=\"content clearfix\"]")
-    private WebElement accountForm;
+    @FindBy(xpath = "//div[@class=\"settings\"]")
+    private WebElement settingsAccountForm;
 
     @FindBy(xpath = "//a[@data-method=\"delete\"]")
     private WebElement deleteLbl;
@@ -21,12 +21,9 @@ public class AccountSettingsPage extends BasePage {
 
     @Override
     public void waitUntilPageObjectIsLoaded() {
-        wait.until(ExpectedConditions.visibilityOf(accountForm));
+        wait.until(ExpectedConditions.visibilityOf(settingsAccountForm));
     }
 
-    public String getURLAccountSettings() {
-        return driver.findElement(By.xpath("//a[@class=\"button\"] [normalize-space()=\"Settings\"]")).getAttribute("href");
-    }
 
     public AccountsPage deleteAccount() {
         deleteLbl.click();

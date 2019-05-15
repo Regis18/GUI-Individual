@@ -9,7 +9,6 @@ import pivotal.entities.MatchValue;
 import pivotal.ui.BasePage;
 
 public class AccountsPage extends BasePage {
-    DriverMethods driverMethods = new DriverMethods();
     @FindBy(xpath = "//div[@class=\"page_description\"]")
     private WebElement accountCreateForm;
 
@@ -25,6 +24,12 @@ public class AccountsPage extends BasePage {
     @FindBy(id = "notice")
     private WebElement messageDelete;
 
+    private DriverMethods driverMethods = new DriverMethods();
+
+    private String accountPath = "//div[contains(text(),\"account\")]";
+
+    private String accountList = "//div[@id=\"accounts_module\"]//div[@class=\"name\"]";
+
 
     @Override
     public void waitUntilPageObjectIsLoaded() {
@@ -37,7 +42,7 @@ public class AccountsPage extends BasePage {
     }
 
     public Boolean verifyAccountInList(String nameAccount) {
-        return MatchValue.existValueInList(nameAccount, driver.findElements(By.xpath("//div[@id=\"accounts_module\"]//div[@class=\"name\"]")));
+        return MatchValue.existValueInList(nameAccount, driver.findElements(By.xpath(accountList)));
     }
 
     public String getMessageDelete() {
@@ -45,6 +50,6 @@ public class AccountsPage extends BasePage {
     }
 
     public boolean elementDisappear(String nameAccount) {
-        return driverMethods.waitForElementDisappear(By.xpath("//div[contains(text(),\"account\")]".replace("account", nameAccount)));
+        return driverMethods.waitForElementDisappear(By.xpath(accountPath.replace("account", nameAccount)));
     }
 }

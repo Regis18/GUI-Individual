@@ -23,7 +23,9 @@ public class accountHooks {
 
     @After("@deleteAccount")
     public void deleteAccount() {
-        pageTransporter.navigateToAccountSettingsPage(context.getAccounts().getUrlSettings()).deleteAccount();
+        pageTransporter.navigateToAccountSettingsPage(context.getUrlAccounts()
+                                                        .getUrlSettings())
+                                                        .deleteAccount();
     }
 
 

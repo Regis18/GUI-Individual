@@ -1,31 +1,24 @@
 package steps;
 
-import cucumber.api.java.After;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import pivotal.entities.Accounts;
 import pivotal.entities.Context;
-import pivotal.ui.components.AccountBar;
-import pivotal.ui.pages.AccountMembershipsPage;
-import pivotal.ui.pages.AccountSettingsPage;
-import pivotal.ui.pages.AccountsPage;
-import pivotal.ui.pages.CreateAccountPopup;
-import pivotal.ui.pages.CreateProjectPopup;
-import pivotal.ui.pages.DashboardPage;
-import pivotal.ui.pages.PageTransporter;
+import pivotal.entities.UrlAccounts;
+import pivotal.ui.pages.*;
 
 import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 
 public class AccountsSteps {
     private AccountsPage accountsPage;
     private CreateAccountPopup accountPopup;
-    private AccountBar accountBar;
+    private AccountPlansPage accountPlansPage;
     private PageTransporter pageTransporter = PageTransporter.getInstance();
     private Accounts account;
+    private UrlAccounts urlAccounts;
     private AccountSettingsPage accountSettingsPage;
     private DashboardPage dashboardPage;
     private CreateProjectPopup createProjectPopup;
@@ -34,6 +27,7 @@ public class AccountsSteps {
 
     public AccountsSteps(Context context) {
         this.context = context;
+        this.urlAccounts = context.getUrlAccounts();
         this.account = context.getAccounts();
     }
 
@@ -42,14 +36,15 @@ public class AccountsSteps {
         account.setNameAccount(nameAccount);
         accountsPage = pageTransporter.navigateToAccountsPage();
         accountPopup = accountsPage.clickNewAccountCreateBtn();
-        accountBar = accountPopup.createNewAccount(nameAccount);
-        accountSettingsPage = new AccountSettingsPage();
-        account.setUrlSettings(accountSettingsPage.getURLAccountSettings());
+        accountPlansPage = accountPopup.createNewAccount(nameAccount);
+        urlAccounts.setUrlSettings(accountPlansPage.getURLAccountSettings());
     }
 
     @Then("^I should see the new account page$")
     public void seeInTheAccountsPageTheAccountCreated() {
-        assertEquals(accountBar.getNameAccount(),account.getNameAccount(), "The account was created with another name");
+        assertEquals(accountPlansPage.getAccountBar().getNameAccount(),
+                    account.getNameAccount(),
+                    "The account was created with another name");
     }
 
     @And("^I should see the new account in the Accounts page$")
@@ -58,16 +53,20 @@ public class AccountsSteps {
         assertTrue(existAccount,"Don't exist the account in the Account Page");
     }
 
-    @When("^I configure the account Name \"([^\"]*)\" and save the changes$")
+    @When("^I update the account Name with \"([^\"]*)\"$")
     public void configureTheAccountNameAndSaveTheChanges(String nameAccount) {
         account.setNameAccount(nameAccount);
-        pageTransporter.navigateToAccountSettingsPage(account.getUrlSettings());
+        pageTransporter.navigateToAccountSettingsPage(urlAccounts.getUrlSettings());
         accountSettingsPage.setNameAccount(nameAccount);
     }
 
-    @When("^I enter to the Settings and delete the account with name \"([^\"]*)\"$")
-    public void enterToTheSettingsAndDeleteTheAccountWithName(String nameAccount) {
-        accountSettingsPage = pageTransporter.navigateToAccountSettingsPage(account.getUrlSettings());
+    @When("I navigate to the Settings Tab in Account Page")
+    public void iNavigateToTheSettingsTabInAccountPage() {
+        accountSettingsPage = pageTransporter.navigateToAccountSettingsPage(urlAccounts.getUrlSettings());
+    }
+
+    @And("^I delete the account that was created$")
+    public void deleteAccount() {
         accountsPage = accountSettingsPage.deleteAccount();
     }
 
@@ -100,7 +99,7 @@ public class AccountsSteps {
         account.setNameMember(member);
         account.setRoleMember(role);
         account.setProjectCreator(true);
-        accountMembershipsPage = pageTransporter.navigateToAccountMembershipPage(account.getUrlAccountMember());
+        accountMembershipsPage = pageTransporter.navigateToAccountMembershipPage(urlAccounts.getUrlAccountMember());
         accountMembershipsPage.addAccountMember(email, role, true);
     }
 
@@ -124,7 +123,7 @@ public class AccountsSteps {
         account.setNameMember(member);
         account.setRoleMember(role);
         account.setProjectCreator(false);
-        accountMembershipsPage = pageTransporter.navigateToAccountMembershipPage(account.getUrlAccountMember());
+        accountMembershipsPage = pageTransporter.navigateToAccountMembershipPage(urlAccounts.getUrlAccountMember());
         accountMembershipsPage.addAccountMember(email, role, false);
     }
 
@@ -154,10 +153,4 @@ public class AccountsSteps {
     public void iShouldSeeAllOfTheAccountsExceptTheDeletedAccount() {
         assertTrue(accountsPage.elementDisappear(account.getNameAccount()));
     }
-
-//    @After("@deleteAccount")
-//    public void deleteAccount() {
-//        pageTransporter.navigateToAccountSettingsPage(account.getUrlSettings());
-//        accountSettingsPage.deleteAccount();
-//    }
 }

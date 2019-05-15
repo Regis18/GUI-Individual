@@ -3,7 +3,6 @@ package pivotal.ui.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import pivotal.ui.components.AccountBar;
 import pivotal.ui.BasePage;
 
 public class CreateAccountPopup extends BasePage {
@@ -21,10 +20,10 @@ public class CreateAccountPopup extends BasePage {
         wait.until(ExpectedConditions.visibilityOf(createAccountPopup));
     }
 
-    public AccountBar createNewAccount(String accountName) {
+    public AccountPlansPage createNewAccount(String accountName) {
         setAccountName(accountName);
         clickCreateAccountBtn();
-        return new AccountBar();
+        return new AccountPlansPage();
     }
 
     private void setAccountName(String accountName) {
