@@ -28,9 +28,10 @@ public class LoginSteps {
         logs.info("The user is logging in to the application Pivotal Tracker");
         JsonObject user = FileReader.readCredentials();
         driver = WebDriverManager.getInstance().getWebDriver();
+        loginPage = pageTransporter.navigateToLoginPage();
         String title = driver.getTitle();
+        System.out.println(title);
         if (title.toLowerCase().equals("pivotal tracker - sign in") || title.equals("")) {
-            loginPage = pageTransporter.navigateToLoginPage();
             loginPage.login(user.get("user").getAsString(), user.get("password").getAsString());
         }
 

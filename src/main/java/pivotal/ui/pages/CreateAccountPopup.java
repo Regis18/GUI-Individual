@@ -1,5 +1,6 @@
 package pivotal.ui.pages;
 
+import core.utils.Logs;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -17,11 +18,14 @@ public class CreateAccountPopup extends BasePage {
 
     @Override
     public void waitUntilPageObjectIsLoaded() {
+        Logs.getInstance().getLog().info("Wait for Create Account Popup upload in the Browser");
         wait.until(ExpectedConditions.visibilityOf(createAccountPopup));
     }
 
     public AccountPlansPage createNewAccount(String accountName) {
+        Logs.getInstance().getLog().info("Create a New Account setting " + accountName + " in the Name Account Text");
         setAccountName(accountName);
+        Logs.getInstance().getLog().info("Click to the Create Project Button");
         clickCreateAccountBtn();
         return new AccountPlansPage();
     }

@@ -42,13 +42,11 @@ public class WebDriverConfig {
      * Initializes WebDriverConfig.
      */
     public void initialize() {
-        try {
-            input = new FileInputStream("gradle.properties");
-            prop.load(input);
-        } catch (IOException event) {
-            event.printStackTrace();
-        }
-        browser = prop.getProperty(BROWSER);
+        updateGradleProperties();
+        updateWaitTime();
+    }
+
+    private void updateWaitTime() {
         String url_json = "./waitTime.json";
         JsonParser parser = new JsonParser();
         FileReader reader;
@@ -63,10 +61,17 @@ public class WebDriverConfig {
         {
             System.out.println(e.getMessage());
         }
-
-
     }
 
+    private void updateGradleProperties() {
+        try {
+            input = new FileInputStream("gradle.properties");
+            prop.load(input);
+        } catch (IOException event) {
+            event.printStackTrace();
+        }
+        browser = prop.getProperty(BROWSER);
+    }
     /**
      * Gets the browser in which the tests are being executed.
      *

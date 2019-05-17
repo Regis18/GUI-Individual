@@ -1,5 +1,6 @@
 package pivotal.ui.pages;
 
+import core.utils.Logs;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -17,10 +18,12 @@ public class CreateProjectPopup extends BasePage {
 
     @Override
     public void waitUntilPageObjectIsLoaded() {
+        Logs.getInstance().getLog().info("Wait for Create Project Popup upload in the Browser");
         wait.until(ExpectedConditions.visibilityOf(accountFrame));
     }
 
     public Boolean verifyAccountInList(String nameAccount) {
+        Logs.getInstance().getLog().info("Click in the Account ComboBox and check if the " + nameAccount + " in the Combo Box Value");
         clickAccountCmb();
         return MatchValue.existValueInList(nameAccount,
                 driver.findElements(By.xpath(accountList)));

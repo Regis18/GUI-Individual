@@ -1,6 +1,8 @@
 package core.utils;
 
 import com.google.gson.JsonObject;
+import org.apache.log4j.Logger;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -9,6 +11,7 @@ import java.util.Properties;
 public class FileReader {
 
     public static JsonObject readCredentials() {
+        Logs.getInstance().getLog().info("Read the credentials of the user, email and password");
         Properties prop = new Properties();
         InputStream input = null;
         JsonObject user = new JsonObject();
