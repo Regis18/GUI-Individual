@@ -13,13 +13,13 @@ public class DriverMethods {
 
     public boolean waitForElementDisappear(By locator) {
         this.webDriver = WebDriverManager.getInstance().getWebDriver();
-        int cont = 5;
+        int cont = 50;
         boolean result = false;
         while (cont > 0) {
             try {
                 this.webDriver.manage()
                         .timeouts()
-                        .implicitlyWait(300, TimeUnit.MILLISECONDS);
+                        .implicitlyWait(500, TimeUnit.MILLISECONDS);
                 webDriver.findElement(locator);
                 cont--;
             } catch (NoSuchElementException e) {

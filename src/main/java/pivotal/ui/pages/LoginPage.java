@@ -1,5 +1,6 @@
 package pivotal.ui.pages;
 
+import core.utils.Logs;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -25,10 +26,12 @@ public class LoginPage extends BasePage {
 
     @Override
     public void waitUntilPageObjectIsLoaded() {
+        Logs.getInstance().getLog().info("Wait for Login Form upload in the Browser");
         wait.until(ExpectedConditions.visibilityOf(loginForm));
     }
 
     public void login(String userName, String password) {
+        Logs.getInstance().getLog().info("Logging the the username and password in to Sign In Page");
         setUserName(userName);
         clickNextSignInBtn();
         setPassword(password);
