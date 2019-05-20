@@ -19,7 +19,7 @@ public class GenerateReport {
         logs.info("The user is logging in to the application Pivotal Tracker");
         File reportOutputDirectory = new File("target");
         List<String> jsonFiles = new ArrayList<>();
-        jsonFiles.add("C:\\Users\\Admin\\IdeaProjects\\GUI TESTING\\target\\cucumber.json");
+        jsonFiles.add(new File("").getAbsolutePath() + "\\target\\cucumber.json");
 
         String buildNumber = "1";
         String projectName = "Pivotel tracker Accounts";
