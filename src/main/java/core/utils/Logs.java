@@ -4,6 +4,8 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
+import java.io.File;
+
 /**
  * Logs
  * @version 0.0.1
@@ -30,7 +32,7 @@ public class Logs {
     public static Logs getInstance() {
         if (instance == null) {
             instance = new Logs();
-            PropertyConfigurator.configure("../GUI-Individual/log.properties");
+            PropertyConfigurator.configure(new File("").getAbsolutePath() + "\\log.properties");
             log.setLevel(Level.ALL);
         }
         return instance;
