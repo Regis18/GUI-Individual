@@ -14,7 +14,7 @@ import java.util.Properties;
  */
 public class WebDriverConfig {
 
-    private static final String BROWSER = "browser";
+    private static final String BROWSER = "${BROWSER}";
 
     private String browser;
     private int implicitWaitTime;
